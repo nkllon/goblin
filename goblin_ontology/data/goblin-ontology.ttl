@@ -1,0 +1,470 @@
+@prefix ui:    <https://nkllon.com/ui#> .
+@prefix prob:  <https://nkllon.com/problem#> .
+@prefix psy:   <https://nkllon.com/psych#> .
+@prefix stake: <https://nkllon.com/stake#> .
+@prefix math:  <https://nkllon.com/math#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+######################################################################
+# Goblin Ontology (Systemic Closure Illusion Gradient)
+# Repo target: nkllon/goblin
+# Core idea: "Goblin score" = SCIG = Systemic Closure Illusion Gradient
+######################################################################
+
+######################################################################
+# Core Classes
+######################################################################
+
+ui:ProblemClass
+    a owl:Class ;
+    rdfs:label "Problem Class" ;
+    rdfs:comment "Abstract class of problems characterized by shared structural features." .
+
+ui:UIClosureIllusionProblem
+    a owl:Class ;
+    rdfs:subClassOf ui:ProblemClass ;
+    rdfs:label "UI Closure Illusion Problem Class" ;
+    rdfs:comment "Class of problems where local models claim closure but are embedded in distributed, asynchronous, multi-stakeholder systems, producing truth gaps and invalid states." .
+
+ui:GlobalStateSystem
+    a owl:Class ;
+    rdfs:label "Global State System" ;
+    rdfs:comment "The full cross-product of real system state, including async effects, backend conditions, external integrations, and human processes." .
+
+ui:Dimension
+    a owl:Class ;
+    rdfs:label "Dimension" ;
+    rdfs:comment "Axis along which the goblin pattern is analyzed." .
+
+ui:QualityAttributeDimension
+    a owl:Class ;
+    rdfs:subClassOf ui:Dimension ;
+    rdfs:label "Quality Attribute Dimension" ;
+    rdfs:comment "Non-functional qualities: security, availability, scalability, performance, maintainability, etc." .
+
+ui:StakeholderDimension
+    a owl:Class ;
+    rdfs:subClassOf ui:Dimension ;
+    rdfs:label "Stakeholder Dimension" .
+
+ui:EnergyDimension
+    a owl:Class ;
+    rdfs:subClassOf ui:Dimension ;
+    rdfs:label "Energy Gradient Dimension" .
+
+psy:Illusion
+    a owl:Class ;
+    rdfs:label "Cognitive Illusion" .
+
+psy:IllusionOfClosure
+    a owl:Class ;
+    rdfs:subClassOf psy:Illusion ;
+    rdfs:label "Illusion of Closure" ;
+    rdfs:comment "Belief that a model is closed and complete despite being embedded in a distributed, partially observable system." .
+
+######################################################################
+# Properties: Goblin score / SCIG
+######################################################################
+
+ui:goblinScore
+    a owl:DatatypeProperty ;
+    rdfs:label "Goblin score" ;
+    rdfs:domain ui:ProblemClass ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Systemic Closure Illusion Gradient (SCIG) score, 0..1, where 1 is maximal closure illusion vs reality mismatch." .
+
+ui:SCIG_Score
+    a owl:DatatypeProperty ;
+    owl:equivalentProperty ui:goblinScore ;
+    rdfs:label "SCIG score (alias of Goblin score)" ;
+    rdfs:domain ui:ProblemClass ;
+    rdfs:range xsd:decimal .
+
+ui:dimensionIndex
+    a owl:DatatypeProperty ;
+    rdfs:label "dimension index" ;
+    rdfs:domain ui:Dimension ;
+    rdfs:range xsd:integer .
+
+ui:energyRelevanceScore
+    a owl:DatatypeProperty ;
+    rdfs:label "energy relevance score" ;
+    rdfs:domain ui:Dimension ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "0..1: how strongly this dimension is shaped by or shapes energy gradients (effort/benefit flows)." .
+
+######################################################################
+# Stakeholders
+######################################################################
+
+stake:StakeholderRole
+    a owl:Class ;
+    rdfs:label "Stakeholder Role" .
+
+stake:caresAbout
+    a owl:ObjectProperty ;
+    rdfs:label "cares about dimension" ;
+    rdfs:domain stake:StakeholderRole ;
+    rdfs:range ui:Dimension .
+
+stake:energySensitivity
+    a owl:DatatypeProperty ;
+    rdfs:label "energy gradient sensitivity" ;
+    rdfs:domain stake:StakeholderRole ;
+    rdfs:range xsd:decimal .
+
+stake:CEO a stake:StakeholderRole ;
+    rdfs:label "Chief Executive Officer" ;
+    stake:energySensitivity "0.9"^^xsd:decimal .
+
+stake:CIO a stake:StakeholderRole ;
+    rdfs:label "Chief Information Officer" ;
+    stake:energySensitivity "0.85"^^xsd:decimal .
+
+stake:CTO a stake:StakeholderRole ;
+    rdfs:label "Chief Technology Officer" ;
+    stake:energySensitivity "0.8"^^xsd:decimal .
+
+stake:CISO a stake:StakeholderRole ;
+    rdfs:label "Chief Information Security Officer" ;
+    stake:energySensitivity "0.75"^^xsd:decimal .
+
+stake:DevOpsEngineer a stake:StakeholderRole ;
+    rdfs:label "DevOps / Platform Engineer" ;
+    stake:energySensitivity "0.8"^^xsd:decimal .
+
+stake:UIDeveloper a stake:StakeholderRole ;
+    rdfs:label "UI / Frontend Developer" ;
+    stake:energySensitivity "0.65"^^xsd:decimal .
+
+######################################################################
+# Key Dimensions (subset for Goblin)
+######################################################################
+
+ui:Dim1_IllusionClosure a ui:Dimension ;
+    rdfs:label "Illusion of Closure / Model Reality Gap" ;
+    ui:dimensionIndex 1 ;
+    ui:energyRelevanceScore "0.8"^^xsd:decimal .
+
+ui:Dim2_DistributedState a ui:Dimension ;
+    rdfs:label "Distributed State & Fragmentation" ;
+    ui:dimensionIndex 2 ;
+    ui:energyRelevanceScore "0.9"^^xsd:decimal .
+
+ui:Dim3_AsyncNonDeterminism a ui:Dimension ;
+    rdfs:label "Asynchrony & Non-Determinism" ;
+    ui:dimensionIndex 3 ;
+    ui:energyRelevanceScore "0.85"^^xsd:decimal .
+
+ui:Dim4_DomainInvariants a ui:Dimension ;
+    rdfs:label "Domain Invariants & Business Truth" ;
+    ui:dimensionIndex 4 ;
+    ui:energyRelevanceScore "0.8"^^xsd:decimal .
+
+ui:Dim5_SecurityPrivacy a ui:QualityAttributeDimension ;
+    rdfs:label "Security & Privacy" ;
+    ui:dimensionIndex 5 ;
+    ui:energyRelevanceScore "0.9"^^xsd:decimal .
+
+ui:Dim7_PerformanceLatency a ui:QualityAttributeDimension ;
+    rdfs:label "Performance & Latency" ;
+    ui:dimensionIndex 7 ;
+    ui:energyRelevanceScore "0.95"^^xsd:decimal .
+
+ui:Dim8_ReliabilityResilience a ui:QualityAttributeDimension ;
+    rdfs:label "Reliability, Resilience & Availability" ;
+    ui:dimensionIndex 8 ;
+    ui:energyRelevanceScore "0.95"^^xsd:decimal .
+
+ui:Dim11_CostEfficiency a ui:QualityAttributeDimension ;
+    rdfs:label "Cost & Economic Efficiency" ;
+    ui:dimensionIndex 11 ;
+    ui:energyRelevanceScore "1.0"^^xsd:decimal .
+
+ui:Dim13_Maintainability a ui:QualityAttributeDimension ;
+    rdfs:label "Maintainability & Evolvability" ;
+    ui:dimensionIndex 13 ;
+    ui:energyRelevanceScore "0.9"^^xsd:decimal .
+
+ui:Dim21_TechnicalDebt a ui:QualityAttributeDimension ;
+    rdfs:label "Technical Debt & Entropy Accumulation" ;
+    ui:dimensionIndex 21 ;
+    ui:energyRelevanceScore "0.95"^^xsd:decimal .
+
+ui:Dim22_EnergyGradientSensitivity a ui:EnergyDimension ;
+    rdfs:label "Energy Gradient Sensitivity (Meta-Dimension)" ;
+    ui:dimensionIndex 22 ;
+    ui:energyRelevanceScore "1.0"^^xsd:decimal .
+
+######################################################################
+# Example Problem-Class Instances and Goblin Scores
+######################################################################
+
+prob:UIFrontend a ui:UIClosureIllusionProblem ;
+    rdfs:label "UI / Frontend Systems" ;
+    ui:goblinScore "0.92"^^xsd:decimal ;
+    rdfs:comment "Local declarative models, global distributed truth: rich goblin behavior." .
+
+prob:CloudOrchestration a ui:UIClosureIllusionProblem ;
+    rdfs:label "Cloud Infrastructure Orchestration" ;
+    ui:goblinScore "0.95"^^xsd:decimal ;
+    rdfs:comment "IaC drift, async cloud APIs, partial failure, external side effects." .
+
+prob:Microservices a ui:UIClosureIllusionProblem ;
+    rdfs:label "Distributed Microservices" ;
+    ui:goblinScore "0.97"^^xsd:decimal ;
+    rdfs:comment "Local invariants vs global eventual consistency; maximal goblin pattern." .
+
+prob:CICD a ui:UIClosureIllusionProblem ;
+    rdfs:label "CI/CD Pipelines" ;
+    ui:goblinScore "0.88"^^xsd:decimal ;
+    rdfs:comment "Pipeline DAGs vs runtime concurrency, caching, and worker variance." .
+
+prob:ConfigManagement a ui:UIClosureIllusionProblem ;
+    rdfs:label "Configuration Management" ;
+    ui:goblinScore "0.90"^^xsd:decimal ;
+    rdfs:comment "Desired-state configs vs mutable hosts and out-of-band changes." .
+
+prob:IAMSecurity a ui:UIClosureIllusionProblem ;
+    rdfs:label "IAM / Security Policy" ;
+    ui:goblinScore "0.94"^^xsd:decimal ;
+    rdfs:comment "Clean policy models vs shadow permissions and cached tokens." .
+
+prob:HealthcareWorkflow a ui:UIClosureIllusionProblem ;
+    rdfs:label "Healthcare Workflows" ;
+    ui:goblinScore "0.80"^^xsd:decimal .
+
+prob:FinanceReconciliation a ui:UIClosureIllusionProblem ;
+    rdfs:label "Financial Reconciliation" ;
+    ui:goblinScore "0.75"^^xsd:decimal .
+
+prob:SupplyChain a ui:UIClosureIllusionProblem ;
+    rdfs:label "Supply Chain / Inventory" ;
+    ui:goblinScore "0.85"^^xsd:decimal .
+
+prob:MLPipelines a ui:UIClosureIllusionProblem ;
+    rdfs:label "ML / Data Pipelines" ;
+    ui:goblinScore "0.82"^^xsd:decimal .
+
+prob:GovernmentProcesses a ui:UIClosureIllusionProblem ;
+    rdfs:label "Government / Regulatory Processes" ;
+    ui:goblinScore "0.90"^^xsd:decimal .
+
+######################################################################
+# Counterexamples with Low Goblin Scores
+######################################################################
+
+prob:PureMathematics a ui:ProblemClass ;
+    rdfs:label "Pure Mathematics (Formal Systems)" ;
+    ui:goblinScore "0.00"^^xsd:decimal ;
+    rdfs:comment "Closed formal systems with no distributed runtime; effectively goblin-free." .
+
+prob:CompilerPipeline a ui:ProblemClass ;
+    rdfs:label "Compiler Pipeline" ;
+    ui:goblinScore "0.15"^^xsd:decimal ;
+    rdfs:comment "Mostly deterministic pipeline; limited distributed state and illusion of closure is justified." .
+
+prob:MechanicalCAD a ui:ProblemClass ;
+    rdfs:label "Mechanical CAD Modeling" ;
+    ui:goblinScore "0.12"^^xsd:decimal .
+
+######################################################################
+# Energy Gradient Meta-Notes
+######################################################################
+
+ui:hasEnergyDimension
+    a owl:ObjectProperty ;
+    rdfs:label "has energy dimension" ;
+    rdfs:domain ui:ProblemClass ;
+    rdfs:range ui:EnergyDimension .
+
+prob:UIFrontend ui:hasEnergyDimension ui:Dim22_EnergyGradientSensitivity .
+prob:CloudOrchestration ui:hasEnergyDimension ui:Dim22_EnergyGradientSensitivity .
+prob:Microservices ui:hasEnergyDimension ui:Dim22_EnergyGradientSensitivity .
+
+######################################################################
+# Extensions for Dynamic Artifact Generation
+######################################################################
+
+# New Classes
+ui:RelationType a owl:Class ;
+    rdfs:label "Relation Type" .
+
+ui:Tier a owl:Class ;
+    rdfs:label "Tier" ;
+    rdfs:comment "Qualitative score tier." .
+
+ui:ScoreComponent a owl:Class ;
+    rdfs:label "Score Component" ;
+    rdfs:comment "Per-dimension normalized component in [0,1]." .
+
+ui:WeightAssignment a owl:Class ;
+    rdfs:label "Weight Assignment" ;
+    rdfs:comment "Binds a Dimension to a weight in [0,1]." .
+
+ui:Artifact a owl:Class ;
+    rdfs:label "Generated Artifact" ;
+    rdfs:comment "Output produced from ontology (PNG, SVG, JSON, HTML)." .
+
+ui:Build a owl:Class ;
+    rdfs:label "Build" ;
+    rdfs:comment "Provenance node grouping artifacts for a given commit/time." .
+
+ui:VisualizationConfig a owl:Class ;
+    rdfs:label "Visualization Config" ;
+    rdfs:comment "Optional thresholds and palette for projections." .
+
+# Object Properties
+ui:influences a owl:ObjectProperty ;
+    rdfs:label "influences" ;
+    rdfs:domain ui:ProblemClass ;
+    rdfs:range ui:ProblemClass .
+
+ui:overlapsWith a owl:ObjectProperty ;
+    rdfs:label "overlaps with" ;
+    rdfs:domain ui:ProblemClass ;
+    rdfs:range ui:ProblemClass .
+
+ui:dependsOn a owl:ObjectProperty ;
+    rdfs:label "depends on" ;
+    rdfs:domain ui:ProblemClass ;
+    rdfs:range ui:ProblemClass .
+
+ui:hasScoreComponent a owl:ObjectProperty ;
+    rdfs:label "has score component" ;
+    rdfs:domain ui:ProblemClass ;
+    rdfs:range ui:ScoreComponent .
+
+ui:forDimension a owl:ObjectProperty ;
+    rdfs:label "for dimension" ;
+    rdfs:domain ui:ScoreComponent , ui:WeightAssignment ;
+    rdfs:range ui:Dimension .
+
+ui:hasTier a owl:ObjectProperty ;
+    rdfs:label "has tier" ;
+    rdfs:domain ui:ProblemClass ;
+    rdfs:range ui:Tier .
+
+ui:generatedByBuild a owl:ObjectProperty ;
+    rdfs:label "generated by build" ;
+    rdfs:domain ui:Artifact ;
+    rdfs:range ui:Build .
+
+ui:hasArtifact a owl:ObjectProperty ;
+    rdfs:label "has artifact" ;
+    rdfs:domain ui:Build ;
+    rdfs:range ui:Artifact .
+
+# Datatype Properties
+ui:componentValue a owl:DatatypeProperty ;
+    rdfs:label "component value" ;
+    rdfs:domain ui:ScoreComponent ;
+    rdfs:range xsd:decimal .
+
+ui:hasWeight a owl:DatatypeProperty ;
+    rdfs:label "weight value" ;
+    rdfs:domain ui:WeightAssignment ;
+    rdfs:range xsd:decimal .
+
+ui:artifactType a owl:DatatypeProperty ;
+    rdfs:label "artifact type" ;
+    rdfs:domain ui:Artifact ;
+    rdfs:range xsd:string .
+
+ui:artifactPath a owl:DatatypeProperty ;
+    rdfs:label "artifact path" ;
+    rdfs:domain ui:Artifact ;
+    rdfs:range xsd:string .
+
+ui:sourceCommit a owl:DatatypeProperty ;
+    rdfs:label "source commit" ;
+    rdfs:domain ui:Build ;
+    rdfs:range xsd:string .
+
+ui:generatedAt a owl:DatatypeProperty ;
+    rdfs:label "generated at" ;
+    rdfs:domain ui:Build ;
+    rdfs:range xsd:dateTime .
+
+ui:lowThreshold a owl:DatatypeProperty ;
+    rdfs:label "low threshold" ;
+    rdfs:domain ui:VisualizationConfig ;
+    rdfs:range xsd:decimal .
+
+ui:highThreshold a owl:DatatypeProperty ;
+    rdfs:label "high threshold" ;
+    rdfs:domain ui:VisualizationConfig ;
+    rdfs:range xsd:decimal .
+
+ui:palette a owl:DatatypeProperty ;
+    rdfs:label "palette" ;
+    rdfs:domain ui:VisualizationConfig ;
+    rdfs:range xsd:string .
+
+# Tier individuals
+ui:High a ui:Tier ; rdfs:label "High" .
+ui:Medium a ui:Tier ; rdfs:label "Medium" .
+ui:Low a ui:Tier ; rdfs:label "Low" .
+
+# Example weight assignment (default weights)
+ui:DefaultWeights a ui:WeightAssignment ;
+    ui:forDimension ui:Dim1_IllusionClosure ; ui:hasWeight "0.18"^^xsd:decimal ;
+    ui:forDimension ui:Dim2_DistributedState ; ui:hasWeight "0.20"^^xsd:decimal ;
+    ui:forDimension ui:Dim3_AsyncNonDeterminism ; ui:hasWeight "0.15"^^xsd:decimal ;
+    ui:forDimension ui:Dim5_SecurityPrivacy ; ui:hasWeight "0.10"^^xsd:decimal ;
+    ui:forDimension ui:Dim4_DomainInvariants ; ui:hasWeight "0.12"^^xsd:decimal ;
+    ui:forDimension ui:Dim22_EnergyGradientSensitivity ; ui:hasWeight "0.25"^^xsd:decimal .
+
+# Score components for a problem instance
+prob:UIFrontend ui:hasScoreComponent [
+        a ui:ScoreComponent ;
+        ui:forDimension ui:Dim2_DistributedState ;
+        ui:componentValue "0.90"^^xsd:decimal
+    ] ,
+    [
+        a ui:ScoreComponent ;
+        ui:forDimension ui:Dim3_AsyncNonDeterminism ;
+        ui:componentValue "0.90"^^xsd:decimal
+    ] .
+
+# Relations and tier examples
+prob:CloudOrchestration ui:influences prob:Microservices .
+prob:Microservices ui:overlapsWith prob:CICD ;
+    ui:hasTier ui:High .
+
+# Additional relations (seed)
+prob:ConfigManagement ui:dependsOn prob:CloudOrchestration .
+prob:IAMSecurity ui:overlapsWith prob:ConfigManagement .
+
+# Additional score components (seed)
+prob:CloudOrchestration ui:hasScoreComponent [
+        a ui:ScoreComponent ;
+        ui:forDimension ui:Dim2_DistributedState ;
+        ui:componentValue "0.95"^^xsd:decimal
+    ] ,
+    [
+        a ui:ScoreComponent ;
+        ui:forDimension ui:Dim8_ReliabilityResilience ;
+        ui:componentValue "0.90"^^xsd:decimal
+    ] .
+
+# Provenance example for generated artifacts
+_:build1 a ui:Build ;
+    ui:sourceCommit "HEAD" ;
+    ui:generatedAt "2025-11-22T00:00:00Z"^^xsd:dateTime ;
+    ui:hasArtifact _:svg1 , _:json1 .
+
+_:svg1 a ui:Artifact ;
+    ui:artifactType "static-svg" ;
+    ui:artifactPath "docs/ttl-graph.svg" ;
+    ui:generatedByBuild _:build1 .
+
+_:json1 a ui:Artifact ;
+    ui:artifactType "web-json" ;
+    ui:artifactPath "docs/goblin.json" ;
+    ui:generatedByBuild _:build1 .
+
+

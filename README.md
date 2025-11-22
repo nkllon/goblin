@@ -11,6 +11,11 @@ This bundle contains:
 - `goblin-agent-lim42.md` — lim42-ready agent spec for computing Goblin scores.
 - `goblin-energy-gradient.md` — energy gradient interpretation with simple flow equations.
 
+## Quick links
+
+- Goblin map (rendered): see `docs/goblin-map.svg` and `docs/goblin-map.png`
+- Ontology visualization (WebVOWL): open `docs/kg.html`
+
 ## Meme / Usage
 
 Because "SCIG" is overloaded in Google (subcutaneous immunoglobulin), we use the meme name:
@@ -30,3 +35,4 @@ The Goblin score is defined in the ontology as `ui:goblinScore` and is an alias 
 - Push this bundle into `nkllon/goblin` as initial commit.
 - Wire `goblin-agent-lim42.md` into lim42 as a reusable agent profile.
 - Render `goblin-map.dot` with Graphviz to produce a PNG/SVG for documentation.
+
