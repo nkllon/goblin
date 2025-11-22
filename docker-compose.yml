@@ -1,0 +1,58 @@
+version: "3.9"
+services:
+  python-validate:
+    image: python:3.11-slim
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    command: >
+      bash -lc "apt-get update &&
+      apt-get install -y --no-install-recommends graphviz &&
+      python -m pip install --no-cache-dir -q rdflib pyshacl graphviz pydot &&
+      python tools/validate_shapes.py"
+
+  python-export:
+    image: python:3.11-slim
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    command: >
+      bash -lc "apt-get update &&
+      apt-get install -y --no-install-recommends graphviz &&
+      python -m pip install --no-cache-dir -q rdflib graphviz pydot &&
+      python tools/export_instances_dot.py &&
+      python tools/export_web_json.py"
+
+  dot-check:
+    image: debian:stable-slim
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    command: >
+      bash -lc "set -e &&
+      apt-get update &&
+      apt-get install -y --no-install-recommends graphviz diffutils &&
+      dot -Tsvg goblin-map.dot -o docs/goblin-map.svg.new &&
+      dot -Tpng goblin-map.dot -o docs/goblin-map.png.new &&
+      cmp -s docs/goblin-map.svg docs/goblin-map.svg.new &&
+      cmp -s docs/goblin-map.png docs/goblin-map.png.new"
+
+  js-package:
+    image: node:20
+    working_dir: /workspace/js/goblin-ontology
+    volumes:
+      - .:/workspace
+    command: >
+      bash -lc "(npm ci || npm i) &&
+      npm run typecheck &&
+      npm run build &&
+      npm test"
+
+  web-build:
+    image: node:20
+    working_dir: /workspace/web
+    volumes:
+      - .:/workspace
+    command: >
+      bash -lc "(npm ci || npm i) &&
+      npm run build"

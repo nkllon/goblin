@@ -1,0 +1,22 @@
+digraph GoblinTTL {
+  rankdir=LR;
+  node [shape=box, style=rounded, fontname="Helvetica"];
+  "https://nkllon.com/problem#CICD" [label="CI/CD Pipelines\nGoblin ~ 0.88", style="filled,rounded", fillcolor="#ff3d00"];
+  "https://nkllon.com/problem#CloudOrchestration" [label="Cloud Infrastructure Orchestration\nGoblin ~ 0.95", style="filled,rounded", fillcolor="#ff1900"];
+  "https://nkllon.com/problem#CompilerPipeline" [label="Compiler Pipeline\nGoblin ~ 0.15", style="filled,rounded", fillcolor="#4cff00"];
+  "https://nkllon.com/problem#ConfigManagement" [label="Configuration Management\nGoblin ~ 0.90", style="filled,rounded", fillcolor="#ff3200"];
+  "https://nkllon.com/problem#Microservices" [label="Distributed Microservices\nGoblin ~ 0.97", style="filled,rounded", fillcolor="#ff0f00"];
+  "https://nkllon.com/problem#FinanceReconciliation" [label="Financial Reconciliation\nGoblin ~ 0.75", style="filled,rounded", fillcolor="#ff7f00"];
+  "https://nkllon.com/problem#GovernmentProcesses" [label="Government / Regulatory Processes\nGoblin ~ 0.90", style="filled,rounded", fillcolor="#ff3200"];
+  "https://nkllon.com/problem#HealthcareWorkflow" [label="Healthcare Workflows\nGoblin ~ 0.80", style="filled,rounded", fillcolor="#ff6500"];
+  "https://nkllon.com/problem#IAMSecurity" [label="IAM / Security Policy\nGoblin ~ 0.94", style="filled,rounded", fillcolor="#ff1e00"];
+  "https://nkllon.com/problem#MLPipelines" [label="ML / Data Pipelines\nGoblin ~ 0.82", style="filled,rounded", fillcolor="#ff5b00"];
+  "https://nkllon.com/problem#MechanicalCAD" [label="Mechanical CAD Modeling\nGoblin ~ 0.12", style="filled,rounded", fillcolor="#3dff00"];
+  "https://nkllon.com/problem#PureMathematics" [label="Pure Mathematics (Formal Systems)\nGoblin ~ 0.00", style="filled,rounded", fillcolor="#00ff00"];
+  "https://nkllon.com/problem#SupplyChain" [label="Supply Chain / Inventory\nGoblin ~ 0.85", style="filled,rounded", fillcolor="#ff4c00"];
+  "https://nkllon.com/problem#UIFrontend" [label="UI / Frontend Systems\nGoblin ~ 0.92", style="filled,rounded", fillcolor="#ff2800"];
+  "https://nkllon.com/problem#CloudOrchestration" -> "https://nkllon.com/problem#Microservices" [label="influences", style="solid"];
+  "https://nkllon.com/problem#ConfigManagement" -> "https://nkllon.com/problem#CloudOrchestration" [label="depends", style="dotted"];
+  "https://nkllon.com/problem#IAMSecurity" -> "https://nkllon.com/problem#ConfigManagement" [label="overlaps", style="dashed"];
+  "https://nkllon.com/problem#Microservices" -> "https://nkllon.com/problem#CICD" [label="overlaps", style="dashed"];
+}

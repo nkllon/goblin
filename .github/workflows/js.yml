@@ -1,0 +1,28 @@
+name: JS Build and Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  js:
+    name: Build JS package
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: js/goblin-ontology
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: js/goblin-ontology/package.json
+      - name: Install
+        run: npm ci || npm i
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Build
+        run: npm run build
+      - name: Test
+        run: npm test

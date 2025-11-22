@@ -1,4 +1,3 @@
-
 @prefix ui:    <https://nkllon.com/ui#> .
 @prefix prob:  <https://nkllon.com/problem#> .
 @prefix psy:   <https://nkllon.com/psych#> .
@@ -341,6 +340,7 @@ ui:hasScoreComponent a owl:ObjectProperty ;
 
 ui:forDimension a owl:ObjectProperty ;
     rdfs:label "for dimension" ;
+    rdfs:domain ui:ScoreComponent , ui:WeightAssignment ;
     rdfs:range ui:Dimension .
 
 ui:hasTier a owl:ObjectProperty ;

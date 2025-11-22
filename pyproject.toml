@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "goblin-ontology"
+version = "0.1.0"
+description = "Ontology and SHACL shapes for the Goblin score, with validation utilities."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Goblin Contributors" }
+]
+dependencies = [
+  "rdflib>=7.0.0",
+  "pyshacl>=0.25.0",
+  "typing-extensions>=4.7.0; python_version < '3.11'",
+]
+
+[project.scripts]
+goblin-validate = "goblin_ontology.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/nkllon/goblin"
+
+[tool.setuptools]
+packages = ["goblin_ontology"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+goblin_ontology = ["data/*"]
+
+[tool.uv]
+dev-dependencies = []

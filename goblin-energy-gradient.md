@@ -90,3 +90,39 @@ In practice:
 are high-leverage moves when their \( w_i \) are large.
 
 Goblin score gives you a way to **prioritize** where to push on the system to reduce long-term misalignment energy.
+
+## Numerical Scenarios
+
+Assume weights (subset): \( w_{\text{closure}}=0.18 \), \( w_{\text{dist}}=0.20 \), \( w_{\text{async}}=0.15 \), \( w_{\text{security}}=0.10 \), \( w_{\text{domain}}=0.12 \), \( w_{\text{energy}}=0.25 \).
+
+### Scenario A: Before → After (small targeted fix)
+- Before: \( x_{\text{closure}}=0.9, x_{\text{dist}}=0.8, x_{\text{async}}=0.8, x_{\text{domain}}=0.6, x_{\text{security}}=0.7, x_{\text{energy}}=0.9 \)
+- After (invest in domain invariants and observability): \( x_{\text{closure}}=0.8, x_{\text{dist}}=0.78, x_{\text{async}}=0.78, x_{\text{domain}}=0.4, x_{\text{security}}=0.7, x_{\text{energy}}=0.88 \)
+
+Compute:
+\[
+G_{\text{before}} \approx 0.18(0.9)+0.20(0.8)+0.15(0.8)+0.12(0.6)+0.10(0.7)+0.25(0.9)=0.808
+\]
+\[
+G_{\text{after}} \approx 0.18(0.8)+0.20(0.78)+0.15(0.78)+0.12(0.4)+0.10(0.7)+0.25(0.88)=0.724
+\]
+\[
+\Delta G = -0.084 \;\;(\text{~10.4% reduction})
+\]
+With \( k=1 \), \( \Delta E=\Delta G \).
+
+### Scenario B: Local optimization that backfires globally
+- Before: same as Scenario A before.
+- Local move: reduce latency by caching and suppressing validation → \( x_{\text{async}}=0.7 \) improves, but \( x_{\text{closure}}=0.95 \), \( x_{\text{domain}}=0.75 \) worsen; others unchanged.
+
+Compute:
+\[
+G_{\text{local}} \approx 0.18(0.95)+0.20(0.8)+0.15(0.7)+0.12(0.75)+0.10(0.7)+0.25(0.9)=0.833
+\]
+\[
+\Delta G = +0.025 \;\;(\text{worse})
+\]
+
+Tie-in to SHACL:
+- The shapes constrain values like `ui:goblinScore` and ensure components (e.g., `ui:componentValue`) stay in \([0,1]\).
+- Scenarios can be serialized as RDF/JSON-LD and validated against `goblin-shapes.ttl` to keep data consistent while experimenting.

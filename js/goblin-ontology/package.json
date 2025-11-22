@@ -1,0 +1,31 @@
+{
+  "name": "@nkllon/goblin-ontology",
+  "version": "0.1.0",
+  "description": "JS/TS loader and SHACL validator for Goblin ontology artifacts.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "goblin-validate": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "assets"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "echo \"no lint configured\"",
+    "test": "node --version && echo \"no tests yet\""
+  },
+  "dependencies": {
+    "@rdfjs/data-model": "^2.0.2",
+    "@rdfjs/dataset": "^2.0.1",
+    "n3": "^1.17.4",
+    "rdf-validate-shacl": "^0.6.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
