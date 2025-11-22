@@ -71,6 +71,27 @@ act pull_request -j dot-check
 act pull_request -j docs-link
 ```
 
+3) act via GHCR (uses gh CLI for token at runtime)
+
+- Ensure GitHub CLI is logged in and has `read:packages`:
+
+```
+gh auth status
+gh auth refresh -h github.com -s read:packages
+```
+
+- Run all CI jobs via GHCR-backed act:
+
+```
+make act-ci-ghcr
+```
+
+- Run a single job:
+
+```
+make act-job-ghcr JOB=js
+```
+
 ## Pre-commit (mirrors CI)
 
 Install pre-commit and enable hooks:

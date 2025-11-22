@@ -36,4 +36,12 @@ hooks:
 hooks-push:
 	pre-commit run --all-files --hook-stage push --show-diff-on-failure
 
+.PHONY: act-ci-ghcr act-job-ghcr
+act-ci-ghcr:
+	bash tools/ci/run_act_ghcr.sh
+
+# Run a single job with GHCR-backed act, e.g.: make act-job-ghcr JOB=js
+act-job-ghcr:
+	bash -lc 'tools/ci/ghcr_login.sh && docker pull ghcr.io/nektos/act:latest >/dev/null && docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$$PWD":/github/workspace -v "$$HOME/.act":/root/.act -w /github/workspace ghcr.io/nektos/act:latest pull_request -P ubuntu-latest=catthehacker/ubuntu:act-latest -j "$${JOB}"'
+
 
