@@ -32,5 +32,3 @@ The pipeline generates:
 
 ## Versioning
 We tag semantic versions for ontology releases and maintain a `CHANGELOG.md`.
-
-

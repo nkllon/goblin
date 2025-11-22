@@ -56,5 +56,3 @@ services:
     command: >
       bash -lc "(npm ci || npm i) &&
       npm run build"
-
-

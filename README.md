@@ -108,4 +108,3 @@ Run all hooks (heavy, uses Docker to ensure parity):
 pre-commit run --all-files --show-diff-on-failure
 pre-commit run --all-files --hook-stage push --show-diff-on-failure
 ```
-

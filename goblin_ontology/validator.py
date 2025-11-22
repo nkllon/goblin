@@ -67,5 +67,3 @@ def validate(
     return ValidationResult(
         conforms=bool(conforms), report_text=str(report_text), report_graph=report_graph
     )
-
-

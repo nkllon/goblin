@@ -33,5 +33,3 @@ goblin_ontology = ["data/*"]
 
 [tool.uv]
 dev-dependencies = []
-
-

@@ -30,5 +30,3 @@ fi
 # Login to GHCR
 printf '%s' "${TOKEN}" | docker login ghcr.io -u "${GH_USER}" --password-stdin 1>/dev/null
 echo "Logged in to ghcr.io as ${GH_USER}"
-
-

@@ -68,5 +68,3 @@ export async function validate(
 
   return { conforms: report.conforms, reportTurtle };
 }
-
-

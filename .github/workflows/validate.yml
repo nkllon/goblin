@@ -67,5 +67,3 @@ jobs:
           grep -q "goblin-map.svg" docs/kg.html
           grep -q "goblin-ontology.ttl" docs/kg.html
           grep -q "goblin-shapes.ttl" docs/kg.html
-
-

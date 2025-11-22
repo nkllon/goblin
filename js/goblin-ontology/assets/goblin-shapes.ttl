@@ -154,5 +154,3 @@ uiSh:DimensionShape
         sh:minCount 0 ;
         sh:message "Dimension MAY define an energyRelevanceScore (0..1)." ;
     ] .
-
-

@@ -466,4 +466,3 @@ _:json1 a ui:Artifact ;
     ui:artifactType "web-json" ;
     ui:artifactPath "docs/goblin.json" ;
     ui:generatedByBuild _:build1 .
-

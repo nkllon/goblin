@@ -39,5 +39,3 @@ async function main(): Promise<number> {
 }
 
 main().then((code) => exit(code));
-
-

@@ -31,5 +31,3 @@ for job in ${JOBS}; do
   run_job "${job}"
   echo "=== done: ${job} ==="
 done
-
-

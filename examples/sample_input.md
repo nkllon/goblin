@@ -8,5 +8,3 @@ Key points:
 - Backoffice users can override orders out-of-band.
 
 Requested: compute the Goblin score and per-dimension notes using the lim42 agent profile.
-
-
