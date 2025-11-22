@@ -115,7 +115,8 @@ def main() -> int:
     g = load_graph(DATA_TTL)
     data = collect(g)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    JSON_PATH.write_text(json.dumps(data, indent=2), encoding="utf-8")
+    # Ensure trailing newline for stable EOF fixer behavior
+    JSON_PATH.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote JSON: {JSON_PATH}")
     return 0
 
