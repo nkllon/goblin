@@ -1,0 +1,52 @@
+
+@prefix ui:    <https://nkllon.com/ui#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix uiSh:  <https://nkllon.com/ui/shapes#goblin#> .
+
+######################################################################
+# Goblin SHACL Shapes
+######################################################################
+
+# Any ProblemClass with a goblin score must keep it in [0,1].
+
+uiSh:GoblinScoreShape
+    a sh:NodeShape ;
+    sh:targetClass ui:ProblemClass ;
+    sh:property [
+        sh:path ui:goblinScore ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 1.0 ;
+        sh:message "Goblin score (SCIG) MUST be between 0.0 and 1.0." ;
+    ] .
+
+# Any UIClosureIllusionProblem MUST have goblinScore specified.
+
+uiSh:UIClosureIllusionShape
+    a sh:NodeShape ;
+    sh:targetClass ui:UIClosureIllusionProblem ;
+    sh:property [
+        sh:path ui:goblinScore ;
+        sh:minCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:message "UIClosureIllusionProblem MUST define a goblin score." ;
+    ] .
+
+# Dimension shape: enforce dimensionIndex and energyRelevanceScore presence (optional but encouraged).
+
+uiSh:DimensionShape
+    a sh:NodeShape ;
+    sh:targetClass ui:Dimension ;
+    sh:property [
+        sh:path ui:dimensionIndex ;
+        sh:datatype xsd:integer ;
+        sh:minCount 0 ;
+        sh:message "Dimension MAY define a dimensionIndex (ordinal)." ;
+    ] ;
+    sh:property [
+        sh:path ui:energyRelevanceScore ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 0 ;
+        sh:message "Dimension MAY define an energyRelevanceScore (0..1)." ;
+    ] .

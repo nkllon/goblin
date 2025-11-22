@@ -1,0 +1,36 @@
+
+digraph GoblinMap {
+  rankdir=LR;
+  node [shape=box, style=rounded];
+
+  UIFrontend        [label="UI / Frontend\nGoblin ~ 0.92"];
+  CloudOrch         [label="Cloud Orchestration\nGoblin ~ 0.95"];
+  Microservices     [label="Microservices\nGoblin ~ 0.97"];
+  CICD              [label="CI/CD\nGoblin ~ 0.88"];
+  ConfigMgmt        [label="Config Mgmt\nGoblin ~ 0.90"];
+  IAM               [label="IAM / Security\nGoblin ~ 0.94"];
+  Healthcare        [label="Healthcare Workflows\nGoblin ~ 0.80"];
+  Finance           [label="Finance / Reconciliation\nGoblin ~ 0.75"];
+  SupplyChain       [label="Supply Chain\nGoblin ~ 0.85"];
+  MLPipelines       [label="ML / Data Pipelines\nGoblin ~ 0.82"];
+  Government        [label="Government / Regulatory\nGoblin ~ 0.90"];
+
+  Math              [label="Pure Mathematics\nGoblin ~ 0.00"];
+  Compiler          [label="Compiler Pipeline\nGoblin ~ 0.15"];
+  CAD               [label="Mechanical CAD\nGoblin ~ 0.12"];
+
+  subgraph cluster_high {
+    label="High Goblin Domains";
+    CloudOrch; Microservices; UIFrontend; CICD; ConfigMgmt; IAM; Government;
+  }
+
+  subgraph cluster_medium {
+    label="Medium Goblin Domains";
+    Healthcare; SupplyChain; MLPipelines; Finance;
+  }
+
+  subgraph cluster_low {
+    label="Low Goblin Domains";
+    Math; Compiler; CAD;
+  }
+}
