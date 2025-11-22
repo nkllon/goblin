@@ -105,11 +105,13 @@ def emit_dot(nodes: Dict[str, Dict], edges: Dict[Tuple[str, str], str]) -> str:
     lines.append("digraph GoblinTTL {")
     lines.append("  rankdir=LR;")
     lines.append("  node [shape=box, style=rounded, fontname=\"Helvetica\"];")
-    for nid, meta in nodes.items():
+    # Deterministic ordering: sort nodes by label then id
+    for nid, meta in sorted(nodes.items(), key=lambda item: (item[1].get("label", ""), item[0])):
         label = meta["label"].replace("\"", "\\\"")
         color = meta["fillcolor"]
         lines.append(f"  \"{nid}\" [label=\"{label}\", style=\"filled,rounded\", fillcolor=\"{color}\"];")
-    for (u, v), kind in edges.items():
+    # Deterministic ordering: sort edges by (u, v, kind)
+    for (u, v), kind in sorted(edges.items(), key=lambda item: (item[0][0], item[0][1], item[1])):
         style = "solid"
         if kind == "overlaps":
             style = "dashed"

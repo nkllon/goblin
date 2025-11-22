@@ -48,7 +48,7 @@ def collect(g: Graph) -> Dict[str, Any]:
         for inst in g.subjects(RDF.type, subclass):
             problem_classes.add(inst)
 
-    for n in problem_classes:
+    for n in sorted(problem_classes, key=lambda x: str(x)):
         nid = str(n)
         nodes.append({
             "id": nid,
@@ -59,14 +59,14 @@ def collect(g: Graph) -> Dict[str, Any]:
         })
 
     # Relations (edges)
-    for s in list(problem_classes):
+    for s in sorted(list(problem_classes), key=lambda x: str(x)):
         for prop, kind in ((UI.influences, "influences"), (UI.overlapsWith, "overlapsWith"), (UI.dependsOn, "dependsOn")):
             for o in g.objects(s, prop):
                 if (str(s) in {n["id"] for n in nodes}) and (str(o) in {n["id"] for n in nodes}):
                     edges.append({"source": str(s), "target": str(o), "type": kind})
 
     # Dimensions
-    for d in g.subjects(RDF.type, UI.Dimension):
+    for d in sorted(g.subjects(RDF.type, UI.Dimension), key=lambda x: str(x)):
         did = str(d)
         dimensions.append({
             "id": did,
@@ -76,8 +76,8 @@ def collect(g: Graph) -> Dict[str, Any]:
         })
 
     # Weights
-    for w in g.subjects(RDF.type, UI.WeightAssignment):
-        for dim in g.objects(w, UI.forDimension):
+    for w in sorted(g.subjects(RDF.type, UI.WeightAssignment), key=lambda x: str(x)):
+        for dim in sorted(g.objects(w, UI.forDimension), key=lambda x: str(x)):
             weight_val = get_float(g, w, UI.hasWeight)
             if weight_val is not None:
                 weights.append({
@@ -87,13 +87,20 @@ def collect(g: Graph) -> Dict[str, Any]:
                 })
 
     # Stakeholders
-    for role in g.subjects(RDF.type, STAKE.StakeholderRole):
-        cares = [str(d) for d in g.objects(role, STAKE.caresAbout)]
+    for role in sorted(g.subjects(RDF.type, STAKE.StakeholderRole), key=lambda x: str(x)):
+        cares = sorted([str(d) for d in g.objects(role, STAKE.caresAbout)])
         stakeholders.append({
             "id": str(role),
             "label": get_label(g, role),
             "caresAbout": cares,
         })
+
+    # Deterministic ordering for all lists
+    nodes.sort(key=lambda n: (n["label"], n["id"]))
+    edges.sort(key=lambda e: (e["source"], e["target"], e["type"]))
+    dimensions.sort(key=lambda d: (d["label"], d["id"]))
+    weights.sort(key=lambda w: (w["dimension"], w["assignment"], w["weight"]))
+    stakeholders.sort(key=lambda s: (s["label"], s["id"]))
 
     return {
         "nodes": nodes,
