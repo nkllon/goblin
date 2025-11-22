@@ -59,6 +59,7 @@ jobs:
           npm run build
 
       - name: Upload artifact (docs)
+        if: ${{ env.ACT != 'true' }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs
