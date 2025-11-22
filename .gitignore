@@ -146,6 +146,10 @@ cython_debug/
 # VS Code
 .vscode/
 
+# Node / JS
+node_modules/
+web/node_modules/
+
 # macOS
 .DS_Store
 
