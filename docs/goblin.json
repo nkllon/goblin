@@ -1,37 +1,9 @@
 {
   "nodes": [
     {
-      "id": "https://nkllon.com/problem#SupplyChain",
-      "label": "Supply Chain / Inventory",
-      "score": 0.85,
-      "tier": null,
-      "type": "ProblemClass"
-    },
-    {
-      "id": "https://nkllon.com/problem#Microservices",
-      "label": "Distributed Microservices",
-      "score": 0.97,
-      "tier": "https://nkllon.com/ui#High",
-      "type": "ProblemClass"
-    },
-    {
-      "id": "https://nkllon.com/problem#UIFrontend",
-      "label": "UI / Frontend Systems",
-      "score": 0.92,
-      "tier": null,
-      "type": "ProblemClass"
-    },
-    {
-      "id": "https://nkllon.com/problem#MechanicalCAD",
-      "label": "Mechanical CAD Modeling",
-      "score": 0.12,
-      "tier": null,
-      "type": "ProblemClass"
-    },
-    {
-      "id": "https://nkllon.com/problem#ConfigManagement",
-      "label": "Configuration Management",
-      "score": 0.9,
+      "id": "https://nkllon.com/problem#IAMSecurity",
+      "label": "IAM / Security Policy",
+      "score": 0.94,
       "tier": null,
       "type": "ProblemClass"
     },
@@ -43,9 +15,16 @@
       "type": "ProblemClass"
     },
     {
-      "id": "https://nkllon.com/problem#MLPipelines",
-      "label": "ML / Data Pipelines",
-      "score": 0.82,
+      "id": "https://nkllon.com/problem#FinanceReconciliation",
+      "label": "Financial Reconciliation",
+      "score": 0.75,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#MechanicalCAD",
+      "label": "Mechanical CAD Modeling",
+      "score": 0.12,
       "tier": null,
       "type": "ProblemClass"
     },
@@ -57,6 +36,20 @@
       "type": "ProblemClass"
     },
     {
+      "id": "https://nkllon.com/problem#ConfigManagement",
+      "label": "Configuration Management",
+      "score": 0.9,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#SupplyChain",
+      "label": "Supply Chain / Inventory",
+      "score": 0.85,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
       "id": "https://nkllon.com/problem#GovernmentProcesses",
       "label": "Government / Regulatory Processes",
       "score": 0.9,
@@ -64,16 +57,30 @@
       "type": "ProblemClass"
     },
     {
-      "id": "https://nkllon.com/problem#IAMSecurity",
-      "label": "IAM / Security Policy",
-      "score": 0.94,
+      "id": "https://nkllon.com/problem#UIFrontend",
+      "label": "UI / Frontend Systems",
+      "score": 0.92,
       "tier": null,
       "type": "ProblemClass"
     },
     {
-      "id": "https://nkllon.com/problem#CloudOrchestration",
-      "label": "Cloud Infrastructure Orchestration",
-      "score": 0.95,
+      "id": "https://nkllon.com/problem#Microservices",
+      "label": "Distributed Microservices",
+      "score": 0.97,
+      "tier": "https://nkllon.com/ui#High",
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#PureMathematics",
+      "label": "Pure Mathematics (Formal Systems)",
+      "score": 0.0,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#MLPipelines",
+      "label": "ML / Data Pipelines",
+      "score": 0.82,
       "tier": null,
       "type": "ProblemClass"
     },
@@ -85,24 +92,17 @@
       "type": "ProblemClass"
     },
     {
-      "id": "https://nkllon.com/problem#FinanceReconciliation",
-      "label": "Financial Reconciliation",
-      "score": 0.75,
-      "tier": null,
-      "type": "ProblemClass"
-    },
-    {
-      "id": "https://nkllon.com/problem#PureMathematics",
-      "label": "Pure Mathematics (Formal Systems)",
-      "score": 0.0,
+      "id": "https://nkllon.com/problem#CloudOrchestration",
+      "label": "Cloud Infrastructure Orchestration",
+      "score": 0.95,
       "tier": null,
       "type": "ProblemClass"
     }
   ],
   "edges": [
     {
-      "source": "https://nkllon.com/problem#Microservices",
-      "target": "https://nkllon.com/problem#CICD",
+      "source": "https://nkllon.com/problem#IAMSecurity",
+      "target": "https://nkllon.com/problem#ConfigManagement",
       "type": "overlapsWith"
     },
     {
@@ -111,8 +111,8 @@
       "type": "dependsOn"
     },
     {
-      "source": "https://nkllon.com/problem#IAMSecurity",
-      "target": "https://nkllon.com/problem#ConfigManagement",
+      "source": "https://nkllon.com/problem#Microservices",
+      "target": "https://nkllon.com/problem#CICD",
       "type": "overlapsWith"
     },
     {

@@ -9,131 +9,131 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 546)">
 <title>GoblinTTL</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-546 1446,-546 1446,4 -4,4"/>
-<!-- https://nkllon.com/problem#PureMathematics -->
+<!-- https://nkllon.com/problem#CompilerPipeline -->
 <g id="node1" class="node">
-<title>https://nkllon.com/problem#PureMathematics</title>
-<path fill="#00ff00" stroke="black" d="M254,-38C254,-38 12,-38 12,-38 6,-38 0,-32 0,-26 0,-26 0,-12 0,-12 0,-6 6,0 12,0 12,0 254,0 254,0 260,0 266,-6 266,-12 266,-12 266,-26 266,-26 266,-32 260,-38 254,-38"/>
-<text text-anchor="middle" x="133" y="-22.8" font-family="Helvetica,sans-Serif" font-size="14.00">Pure Mathematics (Formal Systems)</text>
-<text text-anchor="middle" x="133" y="-7.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.00</text>
-</g>
-<!-- https://nkllon.com/problem#MLPipelines -->
-<g id="node2" class="node">
-<title>https://nkllon.com/problem#MLPipelines</title>
-<path fill="#ff5b00" stroke="black" d="M195,-94C195,-94 71,-94 71,-94 65,-94 59,-88 59,-82 59,-82 59,-68 59,-68 59,-62 65,-56 71,-56 71,-56 195,-56 195,-56 201,-56 207,-62 207,-68 207,-68 207,-82 207,-82 207,-88 201,-94 195,-94"/>
-<text text-anchor="middle" x="133" y="-78.8" font-family="Helvetica,sans-Serif" font-size="14.00">ML / Data Pipelines</text>
-<text text-anchor="middle" x="133" y="-63.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.82</text>
-</g>
-<!-- https://nkllon.com/problem#GovernmentProcesses -->
-<g id="node3" class="node">
-<title>https://nkllon.com/problem#GovernmentProcesses</title>
-<path fill="#ff3200" stroke="black" d="M252.5,-150C252.5,-150 13.5,-150 13.5,-150 7.5,-150 1.5,-144 1.5,-138 1.5,-138 1.5,-124 1.5,-124 1.5,-118 7.5,-112 13.5,-112 13.5,-112 252.5,-112 252.5,-112 258.5,-112 264.5,-118 264.5,-124 264.5,-124 264.5,-138 264.5,-138 264.5,-144 258.5,-150 252.5,-150"/>
-<text text-anchor="middle" x="133" y="-134.8" font-family="Helvetica,sans-Serif" font-size="14.00">Government / Regulatory Processes</text>
-<text text-anchor="middle" x="133" y="-119.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.90</text>
-</g>
-<!-- https://nkllon.com/problem#CICD -->
-<g id="node4" class="node">
-<title>https://nkllon.com/problem#CICD</title>
-<path fill="#ff3d00" stroke="black" d="M1430,-206C1430,-206 1332,-206 1332,-206 1326,-206 1320,-200 1320,-194 1320,-194 1320,-180 1320,-180 1320,-174 1326,-168 1332,-168 1332,-168 1430,-168 1430,-168 1436,-168 1442,-174 1442,-180 1442,-180 1442,-194 1442,-194 1442,-200 1436,-206 1430,-206"/>
-<text text-anchor="middle" x="1381" y="-190.8" font-family="Helvetica,sans-Serif" font-size="14.00">CI/CD Pipelines</text>
-<text text-anchor="middle" x="1381" y="-175.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.88</text>
+<title>https://nkllon.com/problem#CompilerPipeline</title>
+<path fill="#4cff00" stroke="black" d="M189.5,-38C189.5,-38 76.5,-38 76.5,-38 70.5,-38 64.5,-32 64.5,-26 64.5,-26 64.5,-12 64.5,-12 64.5,-6 70.5,0 76.5,0 76.5,0 189.5,0 189.5,0 195.5,0 201.5,-6 201.5,-12 201.5,-12 201.5,-26 201.5,-26 201.5,-32 195.5,-38 189.5,-38"/>
+<text text-anchor="middle" x="133" y="-22.8" font-family="Helvetica,sans-Serif" font-size="14.00">Compiler Pipeline</text>
+<text text-anchor="middle" x="133" y="-7.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.15</text>
 </g>
 <!-- https://nkllon.com/problem#ConfigManagement -->
-<g id="node5" class="node">
+<g id="node2" class="node">
 <title>https://nkllon.com/problem#ConfigManagement</title>
-<path fill="#ff3200" stroke="black" d="M557,-206C557,-206 375,-206 375,-206 369,-206 363,-200 363,-194 363,-194 363,-180 363,-180 363,-174 369,-168 375,-168 375,-168 557,-168 557,-168 563,-168 569,-174 569,-180 569,-180 569,-194 569,-194 569,-200 563,-206 557,-206"/>
-<text text-anchor="middle" x="466" y="-190.8" font-family="Helvetica,sans-Serif" font-size="14.00">Configuration Management</text>
-<text text-anchor="middle" x="466" y="-175.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.90</text>
+<path fill="#ff3200" stroke="black" d="M557,-94C557,-94 375,-94 375,-94 369,-94 363,-88 363,-82 363,-82 363,-68 363,-68 363,-62 369,-56 375,-56 375,-56 557,-56 557,-56 563,-56 569,-62 569,-68 569,-68 569,-82 569,-82 569,-88 563,-94 557,-94"/>
+<text text-anchor="middle" x="466" y="-78.8" font-family="Helvetica,sans-Serif" font-size="14.00">Configuration Management</text>
+<text text-anchor="middle" x="466" y="-63.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.90</text>
 </g>
 <!-- https://nkllon.com/problem#CloudOrchestration -->
-<g id="node10" class="node">
+<g id="node6" class="node">
 <title>https://nkllon.com/problem#CloudOrchestration</title>
-<path fill="#ff1900" stroke="black" d="M910,-206C910,-206 678,-206 678,-206 672,-206 666,-200 666,-194 666,-194 666,-180 666,-180 666,-174 672,-168 678,-168 678,-168 910,-168 910,-168 916,-168 922,-174 922,-180 922,-180 922,-194 922,-194 922,-200 916,-206 910,-206"/>
-<text text-anchor="middle" x="794" y="-190.8" font-family="Helvetica,sans-Serif" font-size="14.00">Cloud Infrastructure Orchestration</text>
-<text text-anchor="middle" x="794" y="-175.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.95</text>
+<path fill="#ff1900" stroke="black" d="M910,-94C910,-94 678,-94 678,-94 672,-94 666,-88 666,-82 666,-82 666,-68 666,-68 666,-62 672,-56 678,-56 678,-56 910,-56 910,-56 916,-56 922,-62 922,-68 922,-68 922,-82 922,-82 922,-88 916,-94 910,-94"/>
+<text text-anchor="middle" x="794" y="-78.8" font-family="Helvetica,sans-Serif" font-size="14.00">Cloud Infrastructure Orchestration</text>
+<text text-anchor="middle" x="794" y="-63.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.95</text>
 </g>
 <!-- https://nkllon.com/problem#ConfigManagement&#45;&gt;https://nkllon.com/problem#CloudOrchestration -->
 <g id="edge1" class="edge">
 <title>https://nkllon.com/problem#ConfigManagement&#45;&gt;https://nkllon.com/problem#CloudOrchestration</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M569.25,-187C596.65,-187 626.71,-187 655.67,-187"/>
-<polygon fill="black" stroke="black" points="655.86,-190.5 665.86,-187 655.86,-183.5 655.86,-190.5"/>
-<text text-anchor="middle" x="617.5" y="-190.8" font-family="Times,serif" font-size="14.00">depends</text>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M569.25,-75C596.65,-75 626.71,-75 655.67,-75"/>
+<polygon fill="black" stroke="black" points="655.86,-78.5 665.86,-75 655.86,-71.5 655.86,-78.5"/>
+<text text-anchor="middle" x="617.5" y="-78.8" font-family="Times,serif" font-size="14.00">depends</text>
+</g>
+<!-- https://nkllon.com/problem#PureMathematics -->
+<g id="node3" class="node">
+<title>https://nkllon.com/problem#PureMathematics</title>
+<path fill="#00ff00" stroke="black" d="M254,-150C254,-150 12,-150 12,-150 6,-150 0,-144 0,-138 0,-138 0,-124 0,-124 0,-118 6,-112 12,-112 12,-112 254,-112 254,-112 260,-112 266,-118 266,-124 266,-124 266,-138 266,-138 266,-144 260,-150 254,-150"/>
+<text text-anchor="middle" x="133" y="-134.8" font-family="Helvetica,sans-Serif" font-size="14.00">Pure Mathematics (Formal Systems)</text>
+<text text-anchor="middle" x="133" y="-119.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.00</text>
+</g>
+<!-- https://nkllon.com/problem#MechanicalCAD -->
+<g id="node4" class="node">
+<title>https://nkllon.com/problem#MechanicalCAD</title>
+<path fill="#3dff00" stroke="black" d="M219,-206C219,-206 47,-206 47,-206 41,-206 35,-200 35,-194 35,-194 35,-180 35,-180 35,-174 41,-168 47,-168 47,-168 219,-168 219,-168 225,-168 231,-174 231,-180 231,-180 231,-194 231,-194 231,-200 225,-206 219,-206"/>
+<text text-anchor="middle" x="133" y="-190.8" font-family="Helvetica,sans-Serif" font-size="14.00">Mechanical CAD Modeling</text>
+<text text-anchor="middle" x="133" y="-175.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.12</text>
 </g>
 <!-- https://nkllon.com/problem#Microservices -->
-<g id="node6" class="node">
+<g id="node5" class="node">
 <title>https://nkllon.com/problem#Microservices</title>
-<path fill="#ff0f00" stroke="black" d="M1211,-206C1211,-206 1043,-206 1043,-206 1037,-206 1031,-200 1031,-194 1031,-194 1031,-180 1031,-180 1031,-174 1037,-168 1043,-168 1043,-168 1211,-168 1211,-168 1217,-168 1223,-174 1223,-180 1223,-180 1223,-194 1223,-194 1223,-200 1217,-206 1211,-206"/>
-<text text-anchor="middle" x="1127" y="-190.8" font-family="Helvetica,sans-Serif" font-size="14.00">Distributed Microservices</text>
-<text text-anchor="middle" x="1127" y="-175.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.97</text>
+<path fill="#ff0f00" stroke="black" d="M1211,-94C1211,-94 1043,-94 1043,-94 1037,-94 1031,-88 1031,-82 1031,-82 1031,-68 1031,-68 1031,-62 1037,-56 1043,-56 1043,-56 1211,-56 1211,-56 1217,-56 1223,-62 1223,-68 1223,-68 1223,-82 1223,-82 1223,-88 1217,-94 1211,-94"/>
+<text text-anchor="middle" x="1127" y="-78.8" font-family="Helvetica,sans-Serif" font-size="14.00">Distributed Microservices</text>
+<text text-anchor="middle" x="1127" y="-63.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.97</text>
+</g>
+<!-- https://nkllon.com/problem#CICD -->
+<g id="node9" class="node">
+<title>https://nkllon.com/problem#CICD</title>
+<path fill="#ff3d00" stroke="black" d="M1430,-94C1430,-94 1332,-94 1332,-94 1326,-94 1320,-88 1320,-82 1320,-82 1320,-68 1320,-68 1320,-62 1326,-56 1332,-56 1332,-56 1430,-56 1430,-56 1436,-56 1442,-62 1442,-68 1442,-68 1442,-82 1442,-82 1442,-88 1436,-94 1430,-94"/>
+<text text-anchor="middle" x="1381" y="-78.8" font-family="Helvetica,sans-Serif" font-size="14.00">CI/CD Pipelines</text>
+<text text-anchor="middle" x="1381" y="-63.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.88</text>
 </g>
 <!-- https://nkllon.com/problem#Microservices&#45;&gt;https://nkllon.com/problem#CICD -->
 <g id="edge2" class="edge">
 <title>https://nkllon.com/problem#Microservices&#45;&gt;https://nkllon.com/problem#CICD</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1223.27,-187C1251.94,-187 1282.88,-187 1309.63,-187"/>
-<polygon fill="black" stroke="black" points="1309.66,-190.5 1319.66,-187 1309.66,-183.5 1309.66,-190.5"/>
-<text text-anchor="middle" x="1271.5" y="-190.8" font-family="Times,serif" font-size="14.00">overlaps</text>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1223.27,-75C1251.94,-75 1282.88,-75 1309.63,-75"/>
+<polygon fill="black" stroke="black" points="1309.66,-78.5 1319.66,-75 1309.66,-71.5 1309.66,-78.5"/>
+<text text-anchor="middle" x="1271.5" y="-78.8" font-family="Times,serif" font-size="14.00">overlaps</text>
 </g>
-<!-- https://nkllon.com/problem#MechanicalCAD -->
-<g id="node7" class="node">
-<title>https://nkllon.com/problem#MechanicalCAD</title>
-<path fill="#3dff00" stroke="black" d="M219,-262C219,-262 47,-262 47,-262 41,-262 35,-256 35,-250 35,-250 35,-236 35,-236 35,-230 41,-224 47,-224 47,-224 219,-224 219,-224 225,-224 231,-230 231,-236 231,-236 231,-250 231,-250 231,-256 225,-262 219,-262"/>
-<text text-anchor="middle" x="133" y="-246.8" font-family="Helvetica,sans-Serif" font-size="14.00">Mechanical CAD Modeling</text>
-<text text-anchor="middle" x="133" y="-231.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.12</text>
+<!-- https://nkllon.com/problem#CloudOrchestration&#45;&gt;https://nkllon.com/problem#Microservices -->
+<g id="edge3" class="edge">
+<title>https://nkllon.com/problem#CloudOrchestration&#45;&gt;https://nkllon.com/problem#Microservices</title>
+<path fill="none" stroke="black" d="M922.03,-75C954.68,-75 989.45,-75 1020.86,-75"/>
+<polygon fill="black" stroke="black" points="1020.93,-78.5 1030.93,-75 1020.93,-71.5 1020.93,-78.5"/>
+<text text-anchor="middle" x="976.5" y="-78.8" font-family="Times,serif" font-size="14.00">influences</text>
 </g>
 <!-- https://nkllon.com/problem#HealthcareWorkflow -->
-<g id="node8" class="node">
+<g id="node7" class="node">
 <title>https://nkllon.com/problem#HealthcareWorkflow</title>
-<path fill="#ff6500" stroke="black" d="M204.5,-318C204.5,-318 61.5,-318 61.5,-318 55.5,-318 49.5,-312 49.5,-306 49.5,-306 49.5,-292 49.5,-292 49.5,-286 55.5,-280 61.5,-280 61.5,-280 204.5,-280 204.5,-280 210.5,-280 216.5,-286 216.5,-292 216.5,-292 216.5,-306 216.5,-306 216.5,-312 210.5,-318 204.5,-318"/>
-<text text-anchor="middle" x="133" y="-302.8" font-family="Helvetica,sans-Serif" font-size="14.00">Healthcare Workflows</text>
-<text text-anchor="middle" x="133" y="-287.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.80</text>
+<path fill="#ff6500" stroke="black" d="M204.5,-262C204.5,-262 61.5,-262 61.5,-262 55.5,-262 49.5,-256 49.5,-250 49.5,-250 49.5,-236 49.5,-236 49.5,-230 55.5,-224 61.5,-224 61.5,-224 204.5,-224 204.5,-224 210.5,-224 216.5,-230 216.5,-236 216.5,-236 216.5,-250 216.5,-250 216.5,-256 210.5,-262 204.5,-262"/>
+<text text-anchor="middle" x="133" y="-246.8" font-family="Helvetica,sans-Serif" font-size="14.00">Healthcare Workflows</text>
+<text text-anchor="middle" x="133" y="-231.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.80</text>
+</g>
+<!-- https://nkllon.com/problem#MLPipelines -->
+<g id="node8" class="node">
+<title>https://nkllon.com/problem#MLPipelines</title>
+<path fill="#ff5b00" stroke="black" d="M195,-318C195,-318 71,-318 71,-318 65,-318 59,-312 59,-306 59,-306 59,-292 59,-292 59,-286 65,-280 71,-280 71,-280 195,-280 195,-280 201,-280 207,-286 207,-292 207,-292 207,-306 207,-306 207,-312 201,-318 195,-318"/>
+<text text-anchor="middle" x="133" y="-302.8" font-family="Helvetica,sans-Serif" font-size="14.00">ML / Data Pipelines</text>
+<text text-anchor="middle" x="133" y="-287.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.82</text>
 </g>
 <!-- https://nkllon.com/problem#FinanceReconciliation -->
-<g id="node9" class="node">
+<g id="node10" class="node">
 <title>https://nkllon.com/problem#FinanceReconciliation</title>
 <path fill="#ff7f00" stroke="black" d="M209,-374C209,-374 57,-374 57,-374 51,-374 45,-368 45,-362 45,-362 45,-348 45,-348 45,-342 51,-336 57,-336 57,-336 209,-336 209,-336 215,-336 221,-342 221,-348 221,-348 221,-362 221,-362 221,-368 215,-374 209,-374"/>
 <text text-anchor="middle" x="133" y="-358.8" font-family="Helvetica,sans-Serif" font-size="14.00">Financial Reconciliation</text>
 <text text-anchor="middle" x="133" y="-343.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.75</text>
 </g>
-<!-- https://nkllon.com/problem#CloudOrchestration&#45;&gt;https://nkllon.com/problem#Microservices -->
-<g id="edge3" class="edge">
-<title>https://nkllon.com/problem#CloudOrchestration&#45;&gt;https://nkllon.com/problem#Microservices</title>
-<path fill="none" stroke="black" d="M922.03,-187C954.68,-187 989.45,-187 1020.86,-187"/>
-<polygon fill="black" stroke="black" points="1020.93,-190.5 1030.93,-187 1020.93,-183.5 1020.93,-190.5"/>
-<text text-anchor="middle" x="976.5" y="-190.8" font-family="Times,serif" font-size="14.00">influences</text>
+<!-- https://nkllon.com/problem#UIFrontend -->
+<g id="node11" class="node">
+<title>https://nkllon.com/problem#UIFrontend</title>
+<path fill="#ff2800" stroke="black" d="M206,-430C206,-430 60,-430 60,-430 54,-430 48,-424 48,-418 48,-418 48,-404 48,-404 48,-398 54,-392 60,-392 60,-392 206,-392 206,-392 212,-392 218,-398 218,-404 218,-404 218,-418 218,-418 218,-424 212,-430 206,-430"/>
+<text text-anchor="middle" x="133" y="-414.8" font-family="Helvetica,sans-Serif" font-size="14.00">UI / Frontend Systems</text>
+<text text-anchor="middle" x="133" y="-399.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.92</text>
+</g>
+<!-- https://nkllon.com/problem#GovernmentProcesses -->
+<g id="node12" class="node">
+<title>https://nkllon.com/problem#GovernmentProcesses</title>
+<path fill="#ff3200" stroke="black" d="M252.5,-486C252.5,-486 13.5,-486 13.5,-486 7.5,-486 1.5,-480 1.5,-474 1.5,-474 1.5,-460 1.5,-460 1.5,-454 7.5,-448 13.5,-448 13.5,-448 252.5,-448 252.5,-448 258.5,-448 264.5,-454 264.5,-460 264.5,-460 264.5,-474 264.5,-474 264.5,-480 258.5,-486 252.5,-486"/>
+<text text-anchor="middle" x="133" y="-470.8" font-family="Helvetica,sans-Serif" font-size="14.00">Government / Regulatory Processes</text>
+<text text-anchor="middle" x="133" y="-455.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.90</text>
 </g>
 <!-- https://nkllon.com/problem#SupplyChain -->
-<g id="node11" class="node">
+<g id="node13" class="node">
 <title>https://nkllon.com/problem#SupplyChain</title>
-<path fill="#ff4c00" stroke="black" d="M215.5,-430C215.5,-430 50.5,-430 50.5,-430 44.5,-430 38.5,-424 38.5,-418 38.5,-418 38.5,-404 38.5,-404 38.5,-398 44.5,-392 50.5,-392 50.5,-392 215.5,-392 215.5,-392 221.5,-392 227.5,-398 227.5,-404 227.5,-404 227.5,-418 227.5,-418 227.5,-424 221.5,-430 215.5,-430"/>
-<text text-anchor="middle" x="133" y="-414.8" font-family="Helvetica,sans-Serif" font-size="14.00">Supply Chain / Inventory</text>
-<text text-anchor="middle" x="133" y="-399.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.85</text>
+<path fill="#ff4c00" stroke="black" d="M215.5,-542C215.5,-542 50.5,-542 50.5,-542 44.5,-542 38.5,-536 38.5,-530 38.5,-530 38.5,-516 38.5,-516 38.5,-510 44.5,-504 50.5,-504 50.5,-504 215.5,-504 215.5,-504 221.5,-504 227.5,-510 227.5,-516 227.5,-516 227.5,-530 227.5,-530 227.5,-536 221.5,-542 215.5,-542"/>
+<text text-anchor="middle" x="133" y="-526.8" font-family="Helvetica,sans-Serif" font-size="14.00">Supply Chain / Inventory</text>
+<text text-anchor="middle" x="133" y="-511.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.85</text>
 </g>
 <!-- https://nkllon.com/problem#IAMSecurity -->
-<g id="node12" class="node">
+<g id="node14" class="node">
 <title>https://nkllon.com/problem#IAMSecurity</title>
-<path fill="#ff1e00" stroke="black" d="M200,-206C200,-206 66,-206 66,-206 60,-206 54,-200 54,-194 54,-194 54,-180 54,-180 54,-174 60,-168 66,-168 66,-168 200,-168 200,-168 206,-168 212,-174 212,-180 212,-180 212,-194 212,-194 212,-200 206,-206 200,-206"/>
-<text text-anchor="middle" x="133" y="-190.8" font-family="Helvetica,sans-Serif" font-size="14.00">IAM / Security Policy</text>
-<text text-anchor="middle" x="133" y="-175.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.94</text>
+<path fill="#ff1e00" stroke="black" d="M200,-94C200,-94 66,-94 66,-94 60,-94 54,-88 54,-82 54,-82 54,-68 54,-68 54,-62 60,-56 66,-56 66,-56 200,-56 200,-56 206,-56 212,-62 212,-68 212,-68 212,-82 212,-82 212,-88 206,-94 200,-94"/>
+<text text-anchor="middle" x="133" y="-78.8" font-family="Helvetica,sans-Serif" font-size="14.00">IAM / Security Policy</text>
+<text text-anchor="middle" x="133" y="-63.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.94</text>
 </g>
 <!-- https://nkllon.com/problem#IAMSecurity&#45;&gt;https://nkllon.com/problem#ConfigManagement -->
 <g id="edge4" class="edge">
 <title>https://nkllon.com/problem#IAMSecurity&#45;&gt;https://nkllon.com/problem#ConfigManagement</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M212.02,-187C253.96,-187 306.41,-187 352.66,-187"/>
-<polygon fill="black" stroke="black" points="352.73,-190.5 362.73,-187 352.73,-183.5 352.73,-190.5"/>
-<text text-anchor="middle" x="314.5" y="-190.8" font-family="Times,serif" font-size="14.00">overlaps</text>
-</g>
-<!-- https://nkllon.com/problem#CompilerPipeline -->
-<g id="node13" class="node">
-<title>https://nkllon.com/problem#CompilerPipeline</title>
-<path fill="#4cff00" stroke="black" d="M189.5,-486C189.5,-486 76.5,-486 76.5,-486 70.5,-486 64.5,-480 64.5,-474 64.5,-474 64.5,-460 64.5,-460 64.5,-454 70.5,-448 76.5,-448 76.5,-448 189.5,-448 189.5,-448 195.5,-448 201.5,-454 201.5,-460 201.5,-460 201.5,-474 201.5,-474 201.5,-480 195.5,-486 189.5,-486"/>
-<text text-anchor="middle" x="133" y="-470.8" font-family="Helvetica,sans-Serif" font-size="14.00">Compiler Pipeline</text>
-<text text-anchor="middle" x="133" y="-455.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.15</text>
-</g>
-<!-- https://nkllon.com/problem#UIFrontend -->
-<g id="node14" class="node">
-<title>https://nkllon.com/problem#UIFrontend</title>
-<path fill="#ff2800" stroke="black" d="M206,-542C206,-542 60,-542 60,-542 54,-542 48,-536 48,-530 48,-530 48,-516 48,-516 48,-510 54,-504 60,-504 60,-504 206,-504 206,-504 212,-504 218,-510 218,-516 218,-516 218,-530 218,-530 218,-536 212,-542 206,-542"/>
-<text text-anchor="middle" x="133" y="-526.8" font-family="Helvetica,sans-Serif" font-size="14.00">UI / Frontend Systems</text>
-<text text-anchor="middle" x="133" y="-511.8" font-family="Helvetica,sans-Serif" font-size="14.00">Goblin ~ 0.92</text>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M212.02,-75C253.96,-75 306.41,-75 352.66,-75"/>
+<polygon fill="black" stroke="black" points="352.73,-78.5 362.73,-75 352.73,-71.5 352.73,-78.5"/>
+<text text-anchor="middle" x="314.5" y="-78.8" font-family="Times,serif" font-size="14.00">overlaps</text>
 </g>
 </g>
 </svg>
