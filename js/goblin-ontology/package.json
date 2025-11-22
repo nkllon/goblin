@@ -23,7 +23,7 @@
     "@rdfjs/data-model": "^2.0.2",
     "@rdfjs/dataset": "^2.0.1",
     "n3": "^1.17.4",
-    "rdf-validate-shacl": "^2.5.0"
+    "rdf-validate-shacl": "^0.6.5"
   },
   "devDependencies": {
     "typescript": "^5.6.3"

@@ -341,7 +341,6 @@ ui:hasScoreComponent a owl:ObjectProperty ;
 
 ui:forDimension a owl:ObjectProperty ;
     rdfs:label "for dimension" ;
-    rdfs:domain ui:ScoreComponent , ui:WeightAssignment ;
     rdfs:range ui:Dimension .
 
 ui:hasTier a owl:ObjectProperty ;

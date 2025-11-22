@@ -1,8 +1,8 @@
 import { promises as fs } from "node:fs";
 import { DataFactory } from "@rdfjs/data-model";
 import rdfDataset from "@rdfjs/dataset";
-import { Parser as N3Parser, Writer as N3Writer, Quad } from "n3";
-import { Validator } from "rdf-validate-shacl";
+import { Parser as N3Parser, Writer as N3Writer } from "n3";
+import Validator from "rdf-validate-shacl";
 
 export type ValidateOptions = {
   dataFormat?: "turtle" | "jsonld"; // currently supporting turtle best
@@ -18,7 +18,7 @@ function guessFormat(path: string): "turtle" | "jsonld" {
 
 async function parseTurtleToDataset(turtle: string) {
   const parser = new N3Parser({ format: "text/turtle" });
-  const quads: Quad[] = parser.parse(turtle) as Quad[];
+  const quads: any[] = parser.parse(turtle) as any[];
   const dataset = rdfDataset.dataset();
   for (const q of quads) {
     dataset.add(rdfDataset.quad(q.subject, q.predicate, q.object, q.graph));
@@ -56,11 +56,11 @@ export async function validate(
 
   const writer = new N3Writer({ format: "text/turtle" });
   const reportDataset = report.dataset;
-  for (const quad of reportDataset) {
-    writer.addQuad(quad as unknown as Quad);
+  for (const quad of reportDataset as any) {
+    writer.addQuad(quad as any);
   }
   const reportTurtle = await new Promise<string>((resolve, reject) => {
-    writer.end((err, result) => {
+    writer.end((err: Error | null, result?: string) => {
       if (err) reject(err);
       else resolve(result ?? "");
     });

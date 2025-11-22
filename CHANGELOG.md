@@ -15,4 +15,11 @@ All notable changes to this project will be documented in this file.
 ### Notes
 - Semantic versioning will track ontology schema changes going forward.
 
+## Unreleased
+### Fixed
+- SHACL failures due to `ui:forDimension` declaring a dual `rdfs:domain` of both `ui:ScoreComponent` and `ui:WeightAssignment`, which inferred nodes into both classes. Removed the domain to avoid unintended inference; SHACL now passes.
+- Regenerated `docs/goblin-map.svg` and `docs/goblin-map.png` from `goblin-map.dot` to match CI dot-check.
+### JS
+- Corrected `rdf-validate-shacl` dependency to `^0.6.5` and adjusted TS config/imports to pass typecheck and build under Node 20.
+
 

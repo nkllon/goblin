@@ -36,3 +36,55 @@ The Goblin score is defined in the ontology as `ui:goblinScore` and is an alias 
 - Wire `goblin-agent-lim42.md` into lim42 as a reusable agent profile.
 - Render `goblin-map.dot` with Graphviz to produce a PNG/SVG for documentation.
 
+## CI parity (local)
+
+You can reproduce GitHub Actions locally in two ways:
+
+1) Docker Compose (dev-friendly)
+
+- Build/run the same steps as CI:
+
+```
+make ci-docker
+```
+
+- Or individual steps:
+
+```
+docker compose run --rm python-validate
+docker compose run --rm python-export
+docker compose run --rm dot-check
+docker compose run --rm js-package
+docker compose run --rm web-build
+```
+
+2) act (exact workflow runner)
+
+- Install: `brew install act` (macOS)
+- Run specific jobs matching `.github/workflows/*.yml`:
+
+```
+act pull_request -j validate-and-build
+act pull_request -j js
+act pull_request -j python-validate
+act pull_request -j dot-check
+act pull_request -j docs-link
+```
+
+## Pre-commit (mirrors CI)
+
+Install pre-commit and enable hooks:
+
+```
+python3 -m pip install --user pre-commit
+pre-commit install
+pre-commit install --hook-type pre-push
+```
+
+Run all hooks (heavy, uses Docker to ensure parity):
+
+```
+pre-commit run --all-files --show-diff-on-failure
+pre-commit run --all-files --hook-stage push --show-diff-on-failure
+```
+
