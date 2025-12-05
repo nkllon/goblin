@@ -1,0 +1,34 @@
+@prefix ui:    <https://nkllon.com/ui#> .
+@prefix ex:    <https://example.com/goblin#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+# Minimal sample that exercises Goblin score components and shape validation.
+ex:CheckoutWorkflow a ui:ProblemClass ;
+    ui:goblinScore "0.82"^^xsd:decimal ;
+    ui:hasTier ui:High ;
+    ui:hasScoreComponent ex:ScoreIllusion , ex:ScoreDistributed , ex:ScoreAsync , ex:ScoreObservability , ex:ScoreEnergy , ex:ScoreStakeholder ;
+    ui:hasWeighting ui:DefaultWeights .
+
+ex:ScoreIllusion a ui:ScoreComponent ;
+    ui:forDimension ui:Dim1_IllusionClosure ;
+    ui:componentValue "0.90"^^xsd:decimal .
+
+ex:ScoreDistributed a ui:ScoreComponent ;
+    ui:forDimension ui:Dim2_DistributedState ;
+    ui:componentValue "0.85"^^xsd:decimal .
+
+ex:ScoreAsync a ui:ScoreComponent ;
+    ui:forDimension ui:Dim3_AsyncNonDeterminism ;
+    ui:componentValue "0.80"^^xsd:decimal .
+
+ex:ScoreStakeholder a ui:ScoreComponent ;
+    ui:forDimension ui:Dim4_DomainInvariants ;
+    ui:componentValue "0.70"^^xsd:decimal .
+
+ex:ScoreObservability a ui:ScoreComponent ;
+    ui:forDimension ui:Dim5_SecurityPrivacy ;
+    ui:componentValue "0.60"^^xsd:decimal .
+
+ex:ScoreEnergy a ui:ScoreComponent ;
+    ui:forDimension ui:Dim22_EnergyGradientSensitivity ;
+    ui:componentValue "0.95"^^xsd:decimal .
