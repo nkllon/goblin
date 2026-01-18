@@ -91,27 +91,38 @@ are high-leverage moves when their \( w_i \) are large.
 
 Goblin score gives you a way to **prioritize** where to push on the system to reduce long-term misalignment energy.
 
-## Numeric scenarios
+## Numerical Scenarios
 
-Using the default weight assignment (`ui:DefaultWeights`):
+Assume weights (subset): \( w_{\text{closure}}=0.18 \), \( w_{\text{dist}}=0.20 \), \( w_{\text{async}}=0.15 \), \( w_{\text{security}}=0.10 \), \( w_{\text{domain}}=0.12 \), \( w_{\text{energy}}=0.25 \).
 
-- \( w_{\text{illusion}} = 0.18\)
-- \( w_{\text{distributed}} = 0.20\)
-- \( w_{\text{async}} = 0.15\)
-- \( w_{\text{stakeholder}} = 0.10\)
-- \( w_{\text{observability}} = 0.12\)
-- \( w_{\text{energy-misalignment}} = 0.25\)
+### Scenario A: Before → After (small targeted fix)
+- Before: \( x_{\text{closure}}=0.9, x_{\text{dist}}=0.8, x_{\text{async}}=0.8, x_{\text{domain}}=0.6, x_{\text{security}}=0.7, x_{\text{energy}}=0.9 \)
+- After (invest in domain invariants and observability): \( x_{\text{closure}}=0.8, x_{\text{dist}}=0.78, x_{\text{async}}=0.78, x_{\text{domain}}=0.4, x_{\text{security}}=0.7, x_{\text{energy}}=0.88 \)
 
-### Scenario A: Partial observability fix
+Compute:
+\[
+G_{\text{before}} \approx 0.18(0.9)+0.20(0.8)+0.15(0.8)+0.12(0.6)+0.10(0.7)+0.25(0.9)=0.808
+\]
+\[
+G_{\text{after}} \approx 0.18(0.8)+0.20(0.78)+0.15(0.78)+0.12(0.4)+0.10(0.7)+0.25(0.88)=0.724
+\]
+\[
+\Delta G = -0.084 \;\;(\text{~10.4% reduction})
+\]
+With \( k=1 \), \( \Delta E=\Delta G \).
 
-Before: \( x = (0.90, 0.85, 0.80, 0.70, 0.60, 0.95) \) ⇒ \( G = 0.83 \)
+### Scenario B: Local optimization that backfires globally
+- Before: same as Scenario A before.
+- Local move: reduce latency by caching and suppressing validation → \( x_{\text{async}}=0.7 \) improves, but \( x_{\text{closure}}=0.95 \), \( x_{\text{domain}}=0.75 \) worsen; others unchanged.
 
-After improving observability, moderating stakeholder expectations, and burning down the energy misalignment: \( x = (0.90, 0.85, 0.80, 0.55, 0.25, 0.55) \) ⇒ \( G = 0.67 \).
+Compute:
+\[
+G_{\text{local}} \approx 0.18(0.95)+0.20(0.8)+0.15(0.7)+0.12(0.75)+0.10(0.7)+0.25(0.9)=0.833
+\]
+\[
+\Delta G = +0.025 \;\;(\text{worse})
+\]
 
-Because \( w_{\text{observability}} + w_{\text{stakeholder}} + w_{\text{energy-misalignment}} = 0.57 \), dropping those three dimensions by ~0.25 each cuts the Goblin score by ~0.16 and the energy \( E = kG \) by the same proportion.
-
-### Scenario B: Chasing determinism without observability
-
-Teams invest in automation that lowers async issues but ignore observability: \( x = (0.90, 0.80, 0.55, 0.65, 0.70, 0.95) \) ⇒ \( G = 0.79 \).
-
-Even with \( x_{\text{async}} \) reduced by 0.25, the higher observability deficit pushes the score back up, illustrating a local vs. global gradient clash. SHACL shapes (`uiSh:ScoreComponentShape`, `uiSh:GoblinScoreShape`) keep each component in \([0,1]\) so these numeric moves remain valid instances.
+Tie-in to SHACL:
+- The shapes constrain values like `ui:goblinScore` and ensure components (e.g., `ui:componentValue`) stay in \([0,1]\).
+- Scenarios can be serialized as RDF/JSON-LD and validated against `goblin-shapes.ttl` to keep data consistent while experimenting.

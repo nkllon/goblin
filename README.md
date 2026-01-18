@@ -19,6 +19,11 @@ Then validate data against the bundled shapes (after installation):
 python -m goblin.validate --data samples/goblin-sample.ttl
 ```
 
+## Quick links
+
+- Goblin map (rendered): see `docs/goblin-map.svg` and `docs/goblin-map.png`
+- Ontology visualization (WebVOWL): open `docs/kg.html`
+
 ## Meme / Usage
 
 Because "SCIG" is overloaded in Google (subcutaneous immunoglobulin), we use the meme name:
@@ -69,3 +74,75 @@ Use the existing lim42 agent prompt (`goblin-agent-lim42.md`) and weights to go 
 - [SVG](docs/goblin-map.svg) — scalable version from the DOT source (`goblin-map.dot`).
 - To produce a PNG locally (not checked into the repo), run `dot -Tpng goblin-map.dot -o docs/goblin-map.png`.
 
+## CI parity (local)
+
+You can reproduce GitHub Actions locally in two ways:
+
+1) Docker Compose (dev-friendly)
+
+- Build/run the same steps as CI:
+
+```
+make ci-docker
+```
+
+- Or individual steps:
+
+```
+docker compose run --rm python-validate
+docker compose run --rm python-export
+docker compose run --rm dot-check
+docker compose run --rm js-package
+docker compose run --rm web-build
+```
+
+1) act (exact workflow runner)
+
+- Install: `brew install act` (macOS)
+- Run specific jobs matching `.github/workflows/*.yml`:
+
+```
+act pull_request -j validate-and-build
+act pull_request -j js
+act pull_request -j python-validate
+act pull_request -j dot-check
+act pull_request -j docs-link
+```
+
+1) act via GHCR (uses gh CLI for token at runtime)
+
+- Ensure GitHub CLI is logged in and has `read:packages`:
+
+```
+gh auth status
+gh auth refresh -h github.com -s read:packages
+```
+
+- Run all CI jobs via GHCR-backed act:
+
+```
+make act-ci-ghcr
+```
+
+- Run a single job:
+
+```
+make act-job-ghcr JOB=js
+```
+
+## Pre-commit (mirrors CI)
+
+Install pre-commit and enable hooks:
+
+```
+python3 -m pip install --user pre-commit
+pre-commit install
+pre-commit install --hook-type pre-push
+```
+
+Run all hooks (heavy, uses Docker to ensure parity):
+
+```
+pre-commit run --all-files --show-diff-on-failure
+pre-commit run --all-files --hook-stage push --show-diff-on-failure
+```

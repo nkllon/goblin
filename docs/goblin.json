@@ -1,0 +1,214 @@
+{
+  "nodes": [
+    {
+      "id": "https://nkllon.com/problem#CICD",
+      "label": "CI/CD Pipelines",
+      "score": 0.88,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#CloudOrchestration",
+      "label": "Cloud Infrastructure Orchestration",
+      "score": 0.95,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#CompilerPipeline",
+      "label": "Compiler Pipeline",
+      "score": 0.15,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#ConfigManagement",
+      "label": "Configuration Management",
+      "score": 0.9,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#Microservices",
+      "label": "Distributed Microservices",
+      "score": 0.97,
+      "tier": "https://nkllon.com/ui#High",
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#FinanceReconciliation",
+      "label": "Financial Reconciliation",
+      "score": 0.75,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#GovernmentProcesses",
+      "label": "Government / Regulatory Processes",
+      "score": 0.9,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#HealthcareWorkflow",
+      "label": "Healthcare Workflows",
+      "score": 0.8,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#IAMSecurity",
+      "label": "IAM / Security Policy",
+      "score": 0.94,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#MLPipelines",
+      "label": "ML / Data Pipelines",
+      "score": 0.82,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#MechanicalCAD",
+      "label": "Mechanical CAD Modeling",
+      "score": 0.12,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#PureMathematics",
+      "label": "Pure Mathematics (Formal Systems)",
+      "score": 0.0,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#SupplyChain",
+      "label": "Supply Chain / Inventory",
+      "score": 0.85,
+      "tier": null,
+      "type": "ProblemClass"
+    },
+    {
+      "id": "https://nkllon.com/problem#UIFrontend",
+      "label": "UI / Frontend Systems",
+      "score": 0.92,
+      "tier": null,
+      "type": "ProblemClass"
+    }
+  ],
+  "edges": [
+    {
+      "source": "https://nkllon.com/problem#CloudOrchestration",
+      "target": "https://nkllon.com/problem#Microservices",
+      "type": "influences"
+    },
+    {
+      "source": "https://nkllon.com/problem#ConfigManagement",
+      "target": "https://nkllon.com/problem#CloudOrchestration",
+      "type": "dependsOn"
+    },
+    {
+      "source": "https://nkllon.com/problem#IAMSecurity",
+      "target": "https://nkllon.com/problem#ConfigManagement",
+      "type": "overlapsWith"
+    },
+    {
+      "source": "https://nkllon.com/problem#Microservices",
+      "target": "https://nkllon.com/problem#CICD",
+      "type": "overlapsWith"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "https://nkllon.com/ui#Dim3_AsyncNonDeterminism",
+      "label": "Asynchrony & Non-Determinism",
+      "index": 3.0,
+      "energyRelevance": 0.85
+    },
+    {
+      "id": "https://nkllon.com/ui#Dim2_DistributedState",
+      "label": "Distributed State & Fragmentation",
+      "index": 2.0,
+      "energyRelevance": 0.9
+    },
+    {
+      "id": "https://nkllon.com/ui#Dim4_DomainInvariants",
+      "label": "Domain Invariants & Business Truth",
+      "index": 4.0,
+      "energyRelevance": 0.8
+    },
+    {
+      "id": "https://nkllon.com/ui#Dim1_IllusionClosure",
+      "label": "Illusion of Closure / Model Reality Gap",
+      "index": 1.0,
+      "energyRelevance": 0.8
+    }
+  ],
+  "weights": [
+    {
+      "dimension": "https://nkllon.com/ui#Dim1_IllusionClosure",
+      "weight": 0.18,
+      "assignment": "https://nkllon.com/ui#DefaultWeights"
+    },
+    {
+      "dimension": "https://nkllon.com/ui#Dim22_EnergyGradientSensitivity",
+      "weight": 0.18,
+      "assignment": "https://nkllon.com/ui#DefaultWeights"
+    },
+    {
+      "dimension": "https://nkllon.com/ui#Dim2_DistributedState",
+      "weight": 0.18,
+      "assignment": "https://nkllon.com/ui#DefaultWeights"
+    },
+    {
+      "dimension": "https://nkllon.com/ui#Dim3_AsyncNonDeterminism",
+      "weight": 0.18,
+      "assignment": "https://nkllon.com/ui#DefaultWeights"
+    },
+    {
+      "dimension": "https://nkllon.com/ui#Dim4_DomainInvariants",
+      "weight": 0.18,
+      "assignment": "https://nkllon.com/ui#DefaultWeights"
+    },
+    {
+      "dimension": "https://nkllon.com/ui#Dim5_SecurityPrivacy",
+      "weight": 0.18,
+      "assignment": "https://nkllon.com/ui#DefaultWeights"
+    }
+  ],
+  "stakeholders": [
+    {
+      "id": "https://nkllon.com/stake#CEO",
+      "label": "Chief Executive Officer",
+      "caresAbout": []
+    },
+    {
+      "id": "https://nkllon.com/stake#CIO",
+      "label": "Chief Information Officer",
+      "caresAbout": []
+    },
+    {
+      "id": "https://nkllon.com/stake#CISO",
+      "label": "Chief Information Security Officer",
+      "caresAbout": []
+    },
+    {
+      "id": "https://nkllon.com/stake#CTO",
+      "label": "Chief Technology Officer",
+      "caresAbout": []
+    },
+    {
+      "id": "https://nkllon.com/stake#DevOpsEngineer",
+      "label": "DevOps / Platform Engineer",
+      "caresAbout": []
+    },
+    {
+      "id": "https://nkllon.com/stake#UIDeveloper",
+      "label": "UI / Frontend Developer",
+      "caresAbout": []
+    }
+  ]
+}

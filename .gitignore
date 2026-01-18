@@ -159,4 +159,10 @@ web/node_modules/
 *.tar.gz
 *.zip
 
-
+# System and IDE exclusions
+**/.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+.idea/
+*.pyc

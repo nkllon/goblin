@@ -11,7 +11,7 @@ Goblin score answers: **"How strong is the closure-illusion vs distributed-reali
 
 Prompt pattern:
 
-> Given the following system description, estimate its Goblin score (0..1). 
+> Given the following system description, estimate its Goblin score (0..1).
 > Explain briefly which factors drive the score along the following axes:
 > - Illusion of closure / formal cleanliness
 > - Actual distributed state and asynchrony
@@ -31,7 +31,7 @@ Then:
 
 2. Combine using a weighted sum:
 
-   goblin_score = 
+   goblin_score =
        0.18 * illusion_closure +
        0.20 * distributed_state +
        0.15 * async_nondeterminism +

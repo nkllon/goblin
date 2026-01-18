@@ -1,0 +1,82 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+
+  # Local hooks mirroring GitHub Actions using Docker images (parity across machines).
+  - repo: local
+    hooks:
+      - id: python-validate
+        name: Python SHACL validation (mirrors validate.yml/python-validate and ci.yml)
+        language: system
+        entry: |
+          bash -lc '
+            docker run --rm \
+              -v "$PWD":/work -w /work \
+              python:3.11-slim \
+              sh -lc "apt-get update && apt-get install -y --no-install-recommends graphviz && python -m pip install --no-cache-dir -q rdflib pyshacl graphviz pydot && python tools/validate_shapes.py"
+          '
+        pass_filenames: false
+        require_serial: true
+        stages: [push]
+
+      - id: python-export
+        name: Export DOT/images and web JSON (mirrors ci.yml exporters)
+        language: system
+        entry: |
+          bash -lc '
+            docker run --rm \
+              -v "$PWD":/work -w /work \
+              python:3.11-slim \
+              sh -lc "apt-get update && apt-get install -y --no-install-recommends graphviz && python -m pip install --no-cache-dir -q rdflib graphviz pydot && python tools/export_instances_dot.py && python tools/export_web_json.py"
+            git diff --quiet -- docs/ || { echo ":: docs changed, commit generated artifacts"; git status --short docs/; exit 1; }
+          '
+        pass_filenames: false
+        require_serial: true
+        stages: [push]
+
+      - id: dot-committed-diff
+        name: Check goblin-map images up-to-date (mirrors validate.yml/dot-check)
+        language: system
+        entry: |
+          bash -lc '
+            docker run --rm \
+              -v "$PWD":/work -w /work \
+              debian:stable-slim \
+              sh -lc "set -e; apt-get update && apt-get install -y --no-install-recommends graphviz diffutils && dot -Tsvg goblin-map.dot -o docs/goblin-map.svg.new && dot -Tpng goblin-map.dot -o docs/goblin-map.png.new"
+            cmp -s docs/goblin-map.svg docs/goblin-map.svg.new && cmp -s docs/goblin-map.png docs/goblin-map.png.new
+          '
+        pass_filenames: false
+        require_serial: true
+        stages: [push]
+
+      - id: js-package
+        name: JS package typecheck/build/test (mirrors js.yml)
+        language: system
+        entry: |
+          bash -lc '
+            docker run --rm \
+              -v "$PWD":/work -w /work/js/goblin-ontology \
+              node:20 \
+              sh -lc "(npm ci || npm i) && npm run typecheck && npm run build && npm test"
+          '
+        pass_filenames: false
+        stages: [push]
+
+      - id: web-build
+        name: Web build to docs (mirrors ci.yml web build)
+        language: system
+        entry: |
+          bash -lc '
+            docker run --rm \
+              -v "$PWD":/work -w /work/web \
+              node:20 \
+              sh -lc "(npm ci || npm i) && npm run build"
+          '
+        pass_filenames: false
+        stages: [push]

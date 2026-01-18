@@ -1,0 +1,156 @@
+@prefix ui:    <https://nkllon.com/ui#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix uiSh:  <https://nkllon.com/ui/shapes#goblin#> .
+
+######################################################################
+# Goblin SHACL Shapes
+######################################################################
+
+# Any ProblemClass with a goblin score must keep it in [0,1].
+
+uiSh:GoblinScoreShape
+    a sh:NodeShape ;
+    sh:targetClass ui:ProblemClass ;
+    sh:property [
+        sh:path ui:goblinScore ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 1.0 ;
+        sh:message "Goblin score (SCIG) MUST be between 0.0 and 1.0." ;
+    ] .
+
+# ScoreComponent must have forDimension and componentValue in [0,1].
+uiSh:ScoreComponentShape
+    a sh:NodeShape ;
+    sh:targetClass ui:ScoreComponent ;
+    sh:property [
+        sh:path ui:forDimension ;
+        sh:minCount 1 ;
+        sh:message "ScoreComponent MUST specify forDimension." ;
+    ] ;
+    sh:property [
+        sh:path ui:componentValue ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 1.0 ;
+        sh:minCount 1 ;
+        sh:message "ScoreComponent MUST have componentValue in [0,1]." ;
+    ] .
+
+# WeightAssignment must have forDimension and hasWeight in [0,1].
+uiSh:WeightAssignmentShape
+    a sh:NodeShape ;
+    sh:targetClass ui:WeightAssignment ;
+    sh:property [
+        sh:path ui:forDimension ;
+        sh:minCount 1 ;
+        sh:message "WeightAssignment MUST specify forDimension." ;
+    ] ;
+    sh:property [
+        sh:path ui:hasWeight ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 1.0 ;
+        sh:minCount 1 ;
+        sh:message "WeightAssignment MUST have hasWeight in [0,1]." ;
+    ] .
+
+# ProblemClass optional hasTier, if present must be one of High|Medium|Low.
+uiSh:TierShape
+    a sh:NodeShape ;
+    sh:targetClass ui:ProblemClass ;
+    sh:property [
+        sh:path ui:hasTier ;
+        sh:minCount 0 ;
+        sh:in ( ui:High ui:Medium ui:Low ) ;
+        sh:message "If provided, hasTier MUST be High, Medium, or Low." ;
+    ] .
+
+# Artifact shape
+uiSh:ArtifactShape
+    a sh:NodeShape ;
+    sh:targetClass ui:Artifact ;
+    sh:property [
+        sh:path ui:artifactType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:message "Artifact MUST specify artifactType." ;
+    ] ;
+    sh:property [
+        sh:path ui:artifactPath ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:message "Artifact MUST specify artifactPath." ;
+    ] .
+
+# Build shape
+uiSh:BuildShape
+    a sh:NodeShape ;
+    sh:targetClass ui:Build ;
+    sh:property [
+        sh:path ui:sourceCommit ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:message "Build MUST specify sourceCommit." ;
+    ] ;
+    sh:property [
+        sh:path ui:generatedAt ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:message "Build MUST specify generatedAt." ;
+    ] .
+
+# Visualization config shape (optional)
+uiSh:VisualizationConfigShape
+    a sh:NodeShape ;
+    sh:targetClass ui:VisualizationConfig ;
+    sh:property [
+        sh:path ui:lowThreshold ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 1.0 ;
+        sh:minCount 0 ;
+    ] ;
+    sh:property [
+        sh:path ui:highThreshold ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 1.0 ;
+        sh:minCount 0 ;
+    ] ;
+    sh:property [
+        sh:path ui:palette ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+    ] .
+
+# Any UIClosureIllusionProblem MUST have goblinScore specified.
+
+uiSh:UIClosureIllusionShape
+    a sh:NodeShape ;
+    sh:targetClass ui:UIClosureIllusionProblem ;
+    sh:property [
+        sh:path ui:goblinScore ;
+        sh:minCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:message "UIClosureIllusionProblem MUST define a goblin score." ;
+    ] .
+
+# Dimension shape: enforce dimensionIndex and energyRelevanceScore presence (optional but encouraged).
+
+uiSh:DimensionShape
+    a sh:NodeShape ;
+    sh:targetClass ui:Dimension ;
+    sh:property [
+        sh:path ui:dimensionIndex ;
+        sh:datatype xsd:integer ;
+        sh:minCount 0 ;
+        sh:message "Dimension MAY define a dimensionIndex (ordinal)." ;
+    ] ;
+    sh:property [
+        sh:path ui:energyRelevanceScore ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 0 ;
+        sh:message "Dimension MAY define an energyRelevanceScore (0..1)." ;
+    ] .
