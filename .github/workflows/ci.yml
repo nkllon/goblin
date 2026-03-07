@@ -39,6 +39,26 @@ jobs:
         run: |
           python -m goblin.validate --data samples/goblin-sample.ttl
 
+      - name: Generate guidance governance module (RDFLib)
+        run: |
+          python tools/generate_guidance_governance_module.py
+
+      - name: Verify generated guidance module is committed
+        run: |
+          python tools/generate_guidance_governance_module.py --check
+
+      - name: Validate SHACL on guidance governance sample
+        run: |
+          python -m goblin.validate \
+            --data samples/guidance-governance-sample.ttl \
+            --shapes goblin-guidance-shapes.ttl
+
+      - name: Enforce guidance conflict gate
+        run: |
+          python tools/report_guidance_conflicts.py \
+            --data samples/guidance-governance-sample.ttl \
+            --ontology goblin-guidance-ontology.ttl
+
       - name: Lint DOT (render to SVG)
         run: |
           dot -Tsvg goblin-map.dot -o /tmp/goblin-map.svg
@@ -46,5 +66,4 @@ jobs:
       - name: Verify WebVOWL availability
         run: |
           curl -I --fail https://service.tib.eu/webvowl/
-
 

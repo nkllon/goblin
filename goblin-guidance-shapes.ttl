@@ -1,0 +1,53 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ui: <https://nkllon.com/ui#> .
+@prefix uiSh: <https://nkllon.com/ui/shapes#goblin#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+uiSh:GuidanceRequirementShape a sh:NodeShape ;
+    sh:property uiSh:Prop_enforcementLevel,
+        uiSh:Prop_hasGuidanceTopic,
+        uiSh:Prop_hasModality,
+        uiSh:Prop_sourceArtifact,
+        uiSh:Prop_sourceLine ;
+    sh:targetClass ui:GuidanceRequirement .
+
+uiSh:In_hasModality rdf:first ui:Must ;
+    rdf:rest uiSh:In_hasModality_0 .
+
+uiSh:In_hasModality_0 rdf:first ui:MustNot ;
+    rdf:rest uiSh:In_hasModality_1 .
+
+uiSh:In_hasModality_1 rdf:first ui:Should ;
+    rdf:rest uiSh:In_hasModality_2 .
+
+uiSh:In_hasModality_2 rdf:first ui:ShouldNot ;
+    rdf:rest uiSh:In_hasModality_3 .
+
+uiSh:In_hasModality_3 rdf:first ui:Policy ;
+    rdf:rest () .
+
+uiSh:Prop_enforcementLevel sh:datatype xsd:string ;
+    sh:message "GuidanceRequirement MUST define enforcementLevel." ;
+    sh:minCount 1 ;
+    sh:path ui:enforcementLevel .
+
+uiSh:Prop_hasGuidanceTopic sh:message "GuidanceRequirement MUST define hasGuidanceTopic." ;
+    sh:minCount 1 ;
+    sh:path ui:hasGuidanceTopic .
+
+uiSh:Prop_hasModality sh:in uiSh:In_hasModality ;
+    sh:message "GuidanceRequirement MUST define hasModality." ;
+    sh:minCount 1 ;
+    sh:path ui:hasModality .
+
+uiSh:Prop_sourceArtifact sh:datatype xsd:string ;
+    sh:message "GuidanceRequirement MUST define sourceArtifact." ;
+    sh:minCount 1 ;
+    sh:path ui:sourceArtifact .
+
+uiSh:Prop_sourceLine sh:datatype xsd:integer ;
+    sh:message "GuidanceRequirement MUST define sourceLine." ;
+    sh:minCount 1 ;
+    sh:path ui:sourceLine .
+

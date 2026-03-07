@@ -1,0 +1,68 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ui: <https://nkllon.com/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ui:Must a ui:NormativeModality ;
+    rdfs:label "must" .
+
+ui:MustNot a ui:NormativeModality ;
+    rdfs:label "must_not" .
+
+ui:Policy a ui:NormativeModality ;
+    rdfs:label "policy" .
+
+ui:Should a ui:NormativeModality ;
+    rdfs:label "should" .
+
+ui:ShouldNot a ui:NormativeModality ;
+    rdfs:label "should_not" .
+
+ui:Topic_Branching a ui:GuidanceTopic ;
+    rdfs:label "branching" .
+
+ui:Topic_GitHubAuth a ui:GuidanceTopic ;
+    rdfs:label "github.auth" .
+
+ui:Topic_OntologyGovernance a ui:GuidanceTopic ;
+    rdfs:label "ontology.governance" .
+
+ui:Topic_QueuePrioritization a ui:GuidanceTopic ;
+    rdfs:label "queue.prioritization" .
+
+ui:enforcementLevel a owl:DatatypeProperty ;
+    rdfs:label "enforcement level" ;
+    rdfs:domain ui:GuidanceRequirement ;
+    rdfs:range xsd:string .
+
+ui:hasGuidanceTopic a owl:ObjectProperty ;
+    rdfs:label "has guidance topic" ;
+    rdfs:domain ui:GuidanceRequirement ;
+    rdfs:range ui:GuidanceTopic .
+
+ui:hasModality a owl:ObjectProperty ;
+    rdfs:label "has modality" ;
+    rdfs:domain ui:GuidanceRequirement ;
+    rdfs:range ui:NormativeModality .
+
+ui:sourceArtifact a owl:DatatypeProperty ;
+    rdfs:label "source artifact" ;
+    rdfs:domain ui:GuidanceRequirement ;
+    rdfs:range xsd:string .
+
+ui:sourceLine a owl:DatatypeProperty ;
+    rdfs:label "source line" ;
+    rdfs:domain ui:GuidanceRequirement ;
+    rdfs:range xsd:integer .
+
+ui:GuidanceRequirement a owl:Class ;
+    rdfs:label "Guidance Requirement" ;
+    rdfs:comment "Normalized governance requirement extracted from guidance artifacts." .
+
+ui:GuidanceTopic a owl:Class ;
+    rdfs:label "Guidance Topic" ;
+    rdfs:comment "Normalized topic for cross-artifact drift checks." .
+
+ui:NormativeModality a owl:Class ;
+    rdfs:label "Normative Modality" .
+
