@@ -7,6 +7,8 @@ This bundle contains:
 
 - `goblin-ontology.ttl` — OWL ontology defining Goblin score (SCIG), problem classes, dimensions, and example domains.
 - `goblin-shapes.ttl` — SHACL shapes constraining Goblin score usage.
+- `goblin-guidance-ontology.ttl` — OWL module for normalized guidance requirements (topics/modality/provenance).
+- `goblin-guidance-shapes.ttl` — SHACL module constraining guidance requirement instances.
 - `goblin-map.dot` — Graphviz DOT file for a "Goblin map" of common domains.
 - `goblin-agent-lim42.md` — lim42-ready agent spec for computing Goblin scores.
 - `goblin-energy-gradient.md` — energy gradient interpretation with simple flow equations.
@@ -17,6 +19,14 @@ Then validate data against the bundled shapes (after installation):
 
 ```bash
 python -m goblin.validate --data samples/goblin-sample.ttl
+```
+
+Guidance-governance module:
+
+```bash
+python tools/generate_guidance_governance_module.py
+python -m goblin.validate --data samples/guidance-governance-sample.ttl --shapes goblin-guidance-shapes.ttl
+python tools/report_guidance_conflicts.py --data samples/guidance-governance-sample.ttl --ontology goblin-guidance-ontology.ttl
 ```
 
 ## Meme / Usage
@@ -68,4 +78,3 @@ Use the existing lim42 agent prompt (`goblin-agent-lim42.md`) and weights to go 
 
 - [SVG](docs/goblin-map.svg) — scalable version from the DOT source (`goblin-map.dot`).
 - To produce a PNG locally (not checked into the repo), run `dot -Tpng goblin-map.dot -o docs/goblin-map.png`.
-

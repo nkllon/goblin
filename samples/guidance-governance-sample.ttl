@@ -1,0 +1,24 @@
+@prefix ui: <https://nkllon.com/ui#> .
+@prefix ex: <https://nkllon.com/example#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:req1 a ui:GuidanceRequirement ;
+    ui:hasGuidanceTopic ui:Topic_GitHubAuth ;
+    ui:hasModality ui:Must ;
+    ui:sourceArtifact "AGENTS.md" ;
+    ui:sourceLine "42"^^xsd:integer ;
+    ui:enforcementLevel "hard" .
+
+ex:req2 a ui:GuidanceRequirement ;
+    ui:hasGuidanceTopic ui:Topic_OntologyGovernance ;
+    ui:hasModality ui:Must ;
+    ui:sourceArtifact "AGENTS.md" ;
+    ui:sourceLine "355"^^xsd:integer ;
+    ui:enforcementLevel "hard" .
+
+ex:req3 a ui:GuidanceRequirement ;
+    ui:hasGuidanceTopic ui:Topic_QueuePrioritization ;
+    ui:hasModality ui:Should ;
+    ui:sourceArtifact "AGENTS.md" ;
+    ui:sourceLine "30"^^xsd:integer ;
+    ui:enforcementLevel "soft" .
